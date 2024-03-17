@@ -1,5 +1,7 @@
-@extends('template.layout')
+@extends('template.nguoi_dung')
 @section('content')
+<br>
+    
     <section class="">
         <!-- Jumbotron -->
         <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
@@ -28,7 +30,7 @@
                                 Đăng nhập
                             </button>
                             <button  class="btn btn-light btn-block mb-4" >
-                                <a href="{{ route('dangky') }}" class="text-primary">Đăng ký </a>
+                                <a href="{{ route('auth.dang_ky') }}" class="text-primary">Đăng ký </a>
                                 
                             </button>
                             <!-- Register buttons -->

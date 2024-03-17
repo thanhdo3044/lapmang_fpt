@@ -13,6 +13,9 @@ class baiviet extends Model
         'title',
         'slug',
         'description',
+        'keywords',
+        'meta_description',
+        'meta_title',
     ];
     public function tinhthanh() {
         return $this->belongsTo(tinhthanh::class, 'id_dia_chi','id');

@@ -67,7 +67,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Menu</a>
+                        <a class="collapse-item" href="{{route('menu.index')}}">Menu</a>
                         <a class="collapse-item" href="{{ route('khuvuc.index') }}">Các khu vực</a>
                         <a class="collapse-item" href="{{ route('tinhthanh.index') }}">Các tỉnh thành</a>
                     </div>
@@ -345,7 +345,7 @@
                                     Activity Log
                                 </a> --}}
                                 {{-- <div class="dropdown-divider"></div> --}}
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('auth.logout') }}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -404,7 +404,7 @@
                 {{-- <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div> --}}
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-                    <a class="btn btn-primary" href="">Đăng xuất</a>
+                    <a class="btn btn-primary" href="{{ route('auth.logout') }}">Đăng xuất</a>
                 </div>
             </div>
         </div>

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('baiviets', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_dia_chi');
-            $table->string('title');
-            $table->string('slug');
-            $table->longText('description');
-            $table->timestamps();
+        Schema::table('baiviets', function (Blueprint $table) {
+            $table->text('keywords')->nullable();
+            $table->longText('meta_description')->nullable();
+            $table->text('meta_title')->nullable();
         });
     }
 
@@ -26,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('baiviets');
+        Schema::table('baiviets', function (Blueprint $table) {
+            //
+        });
     }
 };

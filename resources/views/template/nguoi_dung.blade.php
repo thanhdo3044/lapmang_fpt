@@ -8,7 +8,7 @@
     <meta name="keywords" content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
     <meta name="description" content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
-    <title>Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT</title>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="col-12  d-flex justify-content-end align-items-end ">
-                    <a class="login-logout" href="#">Đăng nhập</a> <a class="login-logout"> | </a> <a class="login-logout" href="#" >	Đăng ký </a>  
+                    <a class="login-logout" href="{{ route('auth.index') }}">Đăng nhập</a> <a class="login-logout"> | </a> <a class="login-logout" href="{{ route('auth.dang_ky') }}" >	Đăng ký </a>  
                 </div>
             </div>
     
@@ -63,35 +63,35 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i>Trang Chủ</a>
+                          <a class="nav-link active" aria-current="page" href="{{ route('menu.trangchu') }}" <i class="fas fa-home"></i>Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-globe-europe"></i>Internet FPT</a>
+                          <a class="nav-link" href="{{ route('menu.internet') }}"><i class="fas fa-globe-europe"></i>Internet FPT</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-video"></i>Camera FPT</a>
+                          <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>Camera FPT</a>
                         </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link" href="{{ route('menu.truyenhinh') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-tv"></i> Truyền Hình FPT
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Gói Cước Cơ Bản</a></li>
-                            <li><a class="dropdown-item" href="#">Gói Mở Rộng</a></li>
-                            <li><a class="dropdown-item" href="#">Danh Sách Kênh</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.goicuoccb') }}">Gói Cước Cơ Bản</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.goicuocmr') }}">Gói Mở Rộng</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.danhsachkenh') }}">Danh Sách Kênh</a></li>
                           </ul>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-gamepad"></i>FPT Play Box</a>
+                          <a class="nav-link" href="{{ route('menu.playbox') }}"><i class="fas fa-gamepad"></i>FPT Play Box</a>
                         </li>
           
                         <li class="nav-item dropdown">
-                          <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link " href="{{ route('menu.hotro') }}" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                             <i class="fas fa-book"></i>  Hỗ Trợ FPT
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Hỗi Trợ Kỹ Thuật</a></li>
-                            <li><a class="dropdown-item" href="#">Thủ Tục Và Chính Sách</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}">Hỗi Trợ Kỹ Thuật</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}">Thủ Tục Và Chính Sách</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -100,9 +100,19 @@
               </nav>
     
     
-    
+    <marquee behavior="" direction=""><strong><span>Sale</span></strong></marquee>
         <div class="container">
-            container
+            <div class="row">
+              <div class="col-9 col-sm-12">
+                
+                {!!$data->description!!}
+                
+              </div>
+              <div class="col-3 col-sm-12" style="background-color: red"></div>
+              
+            </div>
+          
+        
         </div>
         
         <div class="footer">
