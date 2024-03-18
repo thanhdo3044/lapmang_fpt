@@ -67,7 +67,6 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('menu.index')}}">Menu</a>
                         <a class="collapse-item" href="{{ route('khuvuc.index') }}">Các khu vực</a>
                         <a class="collapse-item" href="{{ route('tinhthanh.index') }}">Các tỉnh thành</a>
                     </div>
@@ -85,8 +84,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Menu</a>
-                        <a class="collapse-item" href="utilities-border.html">Các khu vực</a>
+                        <a class="collapse-item" href="{{route('menu.index')}}">Menu</a>
                         <a class="collapse-item" href="{{ route('blog.index') }}">Các tỉnh thành</a>
                     </div>
                 </div>
