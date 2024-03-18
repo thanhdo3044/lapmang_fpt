@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\login;
 
 use App\Http\Controllers\Controller;
+use App\Models\ChFavorite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class loginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard')->with('success', 'Đăng nhập thành công');
         }
-        return redirect()->route('auth.index')->with('error', 'Đăng nhập thất bại');
+        return redirect()->route('menu.trangchu')->with('error', 'Đăng nhập thất bại');
     }
 
     public function logout(Request $request)
@@ -41,8 +42,7 @@ class loginController extends Controller
     {
         $data = new User();
 
-        $data->first_name = $request->first_name;
-        $data->last_name = $request->last_name;
+        $data->name = $request->name;
         $data->phone = $request->phone;
         $data->email = $request->email;
         $data->password = Hash::make($request->password);
@@ -50,6 +50,12 @@ class loginController extends Controller
 
         $data->save();
 
+
+        $favorite = ChFavorite::create([
+            'user_id' => $data->id,
+            'favorite_id' => 1 
+        ]);
+            Auth::login($data);
         return redirect()->route('auth.login')->with('success', 'Đăng kí thành công, mời bạn đăng nhập.');
     }
 

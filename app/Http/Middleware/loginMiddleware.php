@@ -18,6 +18,6 @@ class loginMiddleware
         if(auth()->check() && (auth()->user()->role == 1)){
             return $next($request);
         }
-        return redirect('/trang-chu');
+        return redirect()->route('menu.trangchu');
     }
 }

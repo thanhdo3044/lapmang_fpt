@@ -54,6 +54,11 @@ Route::middleware('admin')->group(function () {
     Route::post('/add-bai-viet-menu', [BlogMenuController::class, 'store'])->name('menu.store');
     Route::get('/sua-bai-viet/{id}', [BlogMenuController::class, 'show'])->name('menu.edit');
     Route::post('/sua-bai-viet/{id}', [BlogMenuController::class, 'update'])->name('menu.update');
+
+
+    Route::get('/chat', function () {
+        return view('admin.chat.index'); 
+    })->name('chat');
 });
 
 

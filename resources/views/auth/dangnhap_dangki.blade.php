@@ -258,9 +258,10 @@
                 </div>
                 <div class="tab-pane" id="sign_up">
                     <form class="form-horizontal login-form" action="{{ route('auth.signup') }}" method="post">
+                        @csrf
                         <div class="form-group relative">
                             <input class="form-control input-lg" id="login_username" placeholder="Họ tên"
-                                required="" type="text" name="last_name"> <i class="fa fa-user"></i>
+                                required="" type="text" name="name"> <i class="fa fa-user"></i>
                         </div>
                         <div class="form-group relative">
                             <input class="form-control input-lg" id="login_username" placeholder="Nhập email(không bắt buộc)"
