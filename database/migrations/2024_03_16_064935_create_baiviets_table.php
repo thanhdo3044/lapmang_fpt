@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('baiviets', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_dia_chi');
+            $table->string('id_dia_chi');
             $table->string('title');
             $table->string('slug');
             $table->longText('description');

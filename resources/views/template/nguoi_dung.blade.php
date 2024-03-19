@@ -8,7 +8,7 @@
     <meta name="keywords" content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
     <meta name="description" content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
-    <title>Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT</title>
+    <title>{{$data->title}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
-<body class="main">
+<body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         <div class="container container-main">
 
             <div class="row title">
@@ -49,7 +49,12 @@
                 </div>
 
                 <div class="col-12  d-flex justify-content-end align-items-end ">
-                    <a class="login-logout" href="#">Đăng nhập</a> <a class="login-logout"> | </a> <a class="login-logout" href="#" >	Đăng ký </a>  
+                  @auth
+                  <a class="login-logout" href="#">{{Auth::user()->name}}</a> <a class="login-logout"> | </a> <a class="login-logout" href="{{ route('auth.logout') }}" onclick="return confirm('Đăng Xuất Ngay')">	Đăng xuất </a> 
+                  @else
+                    <a class="login-logout" href="{{ route('auth.index') }}">Đăng nhập</a> <a class="login-logout"> | </a> <a class="login-logout" href="{{ route('auth.index') }}" >	Đăng ký </a> 
+                    
+                  @endauth
                 </div>
             </div>
     
@@ -63,35 +68,35 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i>Trang Chủ</a>
+                          <a class="nav-link active" aria-current="page" href="{{ route('menu.trangchu') }}" <i class="fas fa-home"></i>Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-globe-europe"></i>Internet FPT</a>
+                          <a class="nav-link" href="{{ route('menu.internet') }}"><i class="fas fa-globe-europe"></i>Internet FPT</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-video"></i>Camera FPT</a>
+                          <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>Camera FPT</a>
                         </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link" href="{{ route('menu.truyenhinh') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-tv"></i> Truyền Hình FPT
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Gói Cước Cơ Bản</a></li>
-                            <li><a class="dropdown-item" href="#">Gói Mở Rộng</a></li>
-                            <li><a class="dropdown-item" href="#">Danh Sách Kênh</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.goicuoccb') }}">Gói Cước Cơ Bản</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.goicuocmr') }}">Gói Mở Rộng</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.danhsachkenh') }}">Danh Sách Kênh</a></li>
                           </ul>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fas fa-gamepad"></i>FPT Play Box</a>
+                          <a class="nav-link" href="{{ route('menu.playbox') }}"><i class="fas fa-gamepad"></i>FPT Play Box</a>
                         </li>
           
                         <li class="nav-item dropdown">
-                          <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link " href="" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                             <i class="fas fa-book"></i>  Hỗ Trợ FPT
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Hỗi Trợ Kỹ Thuật</a></li>
-                            <li><a class="dropdown-item" href="#">Thủ Tục Và Chính Sách</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}">Hỗi Trợ Kỹ Thuật</a></li>
+                            <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}">Thủ Tục Và Chính Sách</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -100,9 +105,19 @@
               </nav>
     
     
-    
+    <marquee behavior="" direction=""><strong><span>Sale</span></strong></marquee>
         <div class="container">
-            container
+            <div class="row">
+              <div class="col-9 col-sm-12">
+                
+                {!!$data->description!!}
+                
+              </div>
+              <div class="col-3 col-sm-12" style="background-color: red"></div>
+              
+            </div>
+          
+        
         </div>
         
         <div class="footer">
@@ -155,7 +170,7 @@
     
         <div  style="color: #000080;" id="DienThoai" >
          <div class="icon_lienhe" id="id_chat_lieuhe" >
-            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38;}</style></defs><title>users-chat-bubble-outline</title><path class="cls-1" d="M345.18,223.18l50.59,50.59a6.56,6.56,0,0,0,11.2-4.64V220.46A72.45,72.45,0,0,0,459.48,151V72.21A72.29,72.29,0,0,0,387.28,0H229.74a72.29,72.29,0,0,0-72.2,72.21v45.94H137.85a72.29,72.29,0,0,0-72.21,72.21v52.51a72.44,72.44,0,0,0,52.52,69.48V361a6.55,6.55,0,0,0,4.05,6.06,6.46,6.46,0,0,0,2.51.5,6.56,6.56,0,0,0,4.64-1.92l50.59-50.59H256a72.29,72.29,0,0,0,72.2-72.21V223.18Zm-174.51-151a59.14,59.14,0,0,1,59.07-59.08H387.28a59.14,59.14,0,0,1,59.08,59.08V151a59.24,59.24,0,0,1-47.26,57.9,6.56,6.56,0,0,0-5.26,6.43v38L352.54,212A6.56,6.56,0,0,0,347.9,210H229.74A59.14,59.14,0,0,1,170.67,151V72.21ZM315.08,242.87A59.14,59.14,0,0,1,256,302H177.23a6.56,6.56,0,0,0-4.64,1.92l-41.31,41.31v-38a6.56,6.56,0,0,0-5.25-6.44,59.22,59.22,0,0,1-47.26-57.89V190.36a59.15,59.15,0,0,1,59.08-59.08h19.69V151a72.29,72.29,0,0,0,72.2,72.21h85.34Z"/><path class="cls-1" d="M242.87,91.9H374.15a6.56,6.56,0,0,0,0-13.13H242.87a6.56,6.56,0,0,0,0,13.13Z"/><path class="cls-1" d="M242.87,144.41h39.38a6.56,6.56,0,0,0,0-13.13H242.87a6.56,6.56,0,0,0,0,13.13Z"/><path class="cls-1" d="M510.55,477.68c-9.07-25.4-29.79-44.63-55.23-53a52.51,52.51,0,1,0-57.31,0c-25.44,8.36-46.16,27.6-55.23,53A24.64,24.64,0,0,0,346,500.42,27.59,27.59,0,0,0,368.58,512H484.75a27.59,27.59,0,0,0,22.58-11.58A24.64,24.64,0,0,0,510.55,477.68Zm-123.27-97a39.38,39.38,0,1,1,39.38,39.38A39.43,39.43,0,0,1,387.28,380.72ZM496.61,492.86a14.45,14.45,0,0,1-11.85,6H368.58a14.45,14.45,0,0,1-11.85-6,11.59,11.59,0,0,1-1.58-10.76c10.45-29.23,39.19-48.87,71.52-48.87s61.08,19.64,71.52,48.87A11.6,11.6,0,0,1,496.61,492.86Z"/><path class="cls-1" d="M81.61,450.5a32.82,32.82,0,1,0-45.06,0A60.07,60.07,0,0,0,1.1,486.2a18.59,18.59,0,0,0,2.4,17.15A20.59,20.59,0,0,0,20.36,512H97.8a20.59,20.59,0,0,0,16.85-8.65,18.58,18.58,0,0,0,2.4-17.15A60.07,60.07,0,0,0,81.61,450.5ZM39.39,426.67a19.69,19.69,0,1,1,19.69,19.69A19.71,19.71,0,0,1,39.39,426.67Zm64.54,69.12a7.47,7.47,0,0,1-6.12,3.08H20.36a7.47,7.47,0,0,1-6.12-3.08,5.6,5.6,0,0,1-.78-5.17c6.65-18.62,25-31.13,45.62-31.13S98,472,104.7,490.62A5.59,5.59,0,0,1,103.93,495.79Z"/></svg>
+            <a href="{{route('chatify')}}"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38;}</style></defs><title>users-chat-bubble-outline</title><path class="cls-1" d="M345.18,223.18l50.59,50.59a6.56,6.56,0,0,0,11.2-4.64V220.46A72.45,72.45,0,0,0,459.48,151V72.21A72.29,72.29,0,0,0,387.28,0H229.74a72.29,72.29,0,0,0-72.2,72.21v45.94H137.85a72.29,72.29,0,0,0-72.21,72.21v52.51a72.44,72.44,0,0,0,52.52,69.48V361a6.55,6.55,0,0,0,4.05,6.06,6.46,6.46,0,0,0,2.51.5,6.56,6.56,0,0,0,4.64-1.92l50.59-50.59H256a72.29,72.29,0,0,0,72.2-72.21V223.18Zm-174.51-151a59.14,59.14,0,0,1,59.07-59.08H387.28a59.14,59.14,0,0,1,59.08,59.08V151a59.24,59.24,0,0,1-47.26,57.9,6.56,6.56,0,0,0-5.26,6.43v38L352.54,212A6.56,6.56,0,0,0,347.9,210H229.74A59.14,59.14,0,0,1,170.67,151V72.21ZM315.08,242.87A59.14,59.14,0,0,1,256,302H177.23a6.56,6.56,0,0,0-4.64,1.92l-41.31,41.31v-38a6.56,6.56,0,0,0-5.25-6.44,59.22,59.22,0,0,1-47.26-57.89V190.36a59.15,59.15,0,0,1,59.08-59.08h19.69V151a72.29,72.29,0,0,0,72.2,72.21h85.34Z"/><path class="cls-1" d="M242.87,91.9H374.15a6.56,6.56,0,0,0,0-13.13H242.87a6.56,6.56,0,0,0,0,13.13Z"/><path class="cls-1" d="M242.87,144.41h39.38a6.56,6.56,0,0,0,0-13.13H242.87a6.56,6.56,0,0,0,0,13.13Z"/><path class="cls-1" d="M510.55,477.68c-9.07-25.4-29.79-44.63-55.23-53a52.51,52.51,0,1,0-57.31,0c-25.44,8.36-46.16,27.6-55.23,53A24.64,24.64,0,0,0,346,500.42,27.59,27.59,0,0,0,368.58,512H484.75a27.59,27.59,0,0,0,22.58-11.58A24.64,24.64,0,0,0,510.55,477.68Zm-123.27-97a39.38,39.38,0,1,1,39.38,39.38A39.43,39.43,0,0,1,387.28,380.72ZM496.61,492.86a14.45,14.45,0,0,1-11.85,6H368.58a14.45,14.45,0,0,1-11.85-6,11.59,11.59,0,0,1-1.58-10.76c10.45-29.23,39.19-48.87,71.52-48.87s61.08,19.64,71.52,48.87A11.6,11.6,0,0,1,496.61,492.86Z"/><path class="cls-1" d="M81.61,450.5a32.82,32.82,0,1,0-45.06,0A60.07,60.07,0,0,0,1.1,486.2a18.59,18.59,0,0,0,2.4,17.15A20.59,20.59,0,0,0,20.36,512H97.8a20.59,20.59,0,0,0,16.85-8.65,18.58,18.58,0,0,0,2.4-17.15A60.07,60.07,0,0,0,81.61,450.5ZM39.39,426.67a19.69,19.69,0,1,1,19.69,19.69A19.71,19.71,0,0,1,39.39,426.67Zm64.54,69.12a7.47,7.47,0,0,1-6.12,3.08H20.36a7.47,7.47,0,0,1-6.12-3.08,5.6,5.6,0,0,1-.78-5.17c6.65-18.62,25-31.13,45.62-31.13S98,472,104.7,490.62A5.59,5.59,0,0,1,103.93,495.79Z"/></svg></a>
          </div>
         </div>
     
