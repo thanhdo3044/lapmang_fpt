@@ -8,7 +8,7 @@
     <meta name="keywords" content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
     <meta name="description" content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
-    <title></title>
+    <title>{{$data->title}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
-<body class="main">
+<body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         <div class="container container-main">
 
             <div class="row title">
@@ -91,7 +91,7 @@
                         </li>
           
                         <li class="nav-item dropdown">
-                          <a class="nav-link " href="{{ route('menu.hotro') }}" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                          <a class="nav-link " href="" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                             <i class="fas fa-book"></i>  Hỗ Trợ FPT
                           </a>
                           <ul class="dropdown-menu">

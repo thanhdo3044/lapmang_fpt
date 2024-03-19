@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\khuvucController;
 use App\Http\Controllers\admin\tinhthanhController;
 use App\Http\Controllers\login\loginController;
 use App\Http\Controllers\MenuController;
+use App\Models\baiviet;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,16 +74,17 @@ Route::get('/dang-ky', [loginController::class, 'dangky'])->name('auth.dang_ky')
 // MENU
 
 
+// Route::get('/', [MenuController::class, 'trangchu'])->name('menu.index');
 Route::get('/', [MenuController::class, 'trangchu'])->name('menu.trangchu');
-Route::get('/internet-fpt', [MenuController::class, 'internet'])->name('menu.internet');
-Route::get('/camera-fpt', [MenuController::class, 'camera'])->name('menu.camera');
-Route::get('/truyen-hinh-fpt', [MenuController::class, 'truyenhinh'])->name('menu.truyenhinh');
-Route::get('/goi-cuoc-co-ban', [MenuController::class, 'goicuoccb'])->name('menu.goicuoccb');
-Route::get('/goi-cuoc-mo-rong', [MenuController::class, 'goicuocmr'])->name('menu.goicuocmr');
-Route::get('/danh-sach-kenh', [MenuController::class, 'danhsachkenh'])->name('menu.danhsachkenh');
-Route::get('/fpt-play-box', [MenuController::class, 'playbox'])->name('menu.playbox');
-Route::get('/ho-tro-fpt', [MenuController::class, 'hotro'])->name('menu.hotro');
-Route::get('/ho-tro-ki-thuat', [MenuController::class, 'spkithuat'])->name('menu.spkithuat');
-Route::get('/thu-tuc-va-chinh-sach', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
+Route::get('/internet-fpt-dich-vu-cung-cap-cap-quang-gia-re-toc', [MenuController::class, 'internet'])->name('menu.internet');
+Route::get('/lap-dat-camera-fpt-camera-fpt', [MenuController::class, 'camera'])->name('menu.camera');
+Route::get('/dang-ky-lap-dat-truyen-hinh-fpt-truyen-hinh-internet-so-1-viet-nam', [MenuController::class, 'truyenhinh'])->name('menu.truyenhinh');
+Route::get('/nhung-tinh-nang-goi-cuoc-co-ban-cua-truyen-hinh-fpt-2024', [MenuController::class, 'goicuoccb'])->name('menu.goicuoccb');
+Route::get('/nhung-tinh-nang-goi-cuoc-mo-rong-cua-truyen-hinh-fpt-2024', [MenuController::class, 'goicuocmr'])->name('menu.goicuocmr');
+Route::get('/danh-sach-kenh-moi-nhat-cua-truyen-hinh-fpt-lien-tuc-cap-nhat', [MenuController::class, 'danhsachkenh'])->name('menu.danhsachkenh');
+Route::get('/fpt-play-box-tv-box-giai-tri-hang-dau-viet-nam-bien-tivi-thuong-thanh-smart-tv', [MenuController::class, 'playbox'])->name('menu.playbox');
+Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'hotro'])->name('menu.hotro');
+Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'spkithuat'])->name('menu.spkithuat');
+Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
 
 

@@ -80,7 +80,7 @@ class BlogMenuController extends Controller
 
         $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
-        $data->slug = Str::slug($request->title);
+        // $data->slug = Str::slug($request->title);
         $data->description = $request->description;
         $data->keywords = $request->keywords;
         $data->meta_description = $request->meta_description;
