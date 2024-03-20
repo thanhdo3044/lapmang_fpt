@@ -6,6 +6,7 @@
 }
 .container-main{
     background-color: #fff;
+    width: 100%;
 }
 
 .title-menu{
@@ -82,6 +83,52 @@
   .icon_lienhe:hover{
     border: 5px solid #FFFFFF;
   }
+  .card-left-context{
+    border: 1px solid #000;
+    text-align: center;
+    font-weight: bold;
+    padding: 0;
+    border-bottom-color: transparent;
+  }
+  .card-left-context-header{
+    background-color: #3A71BC;
+    color: white;
+    border-bottom:1px solid black
+  }
+  .card-left-context-body{
+    padding: 15px;
+  }
+  .card-left-context-body a{
+    color: #000080;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  .card-left-context-footer{
+    border-top: 1px solid rgba(0, 0, 0, 0.119);
+    background-color: #DAFDD7;
+    text-align: center;
+    margin: 3%;
+    padding: 0;
+
+  }
+  #table_khuvu{
+    caption-side:unset;
+    border-collapse:unset;
+    margin-top: 0;
+  }
+  .table_khuvu{
+    border:1px solid black;
+    width: 100%;
+  }
+  .table_khuvu tr td {
+    border: 1px solid black;
+  }
+ 
+  .table_khuvu tr td a{
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
@@ -117,4 +164,15 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+  }
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
   }

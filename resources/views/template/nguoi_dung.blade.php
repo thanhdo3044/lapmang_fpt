@@ -105,7 +105,11 @@
               </nav>
     
     
-    <marquee behavior="" direction=""><strong><span>Sale</span></strong></marquee>
+              <marquee behavior="scroll" scrollamount="8" height="30" direction="left">
+                <h5 style="color: red">
+                  <i class="fab fa-salesforce"></i>KM áp dụng khu vực Hà Nội : COMBO cả Internet wifi và Truyền hình<i class="fab fa-salesforce">
+                </h5>
+              </marquee>
         <div class="container">
             <div class="row">
               <div class="col-9 col-sm-12">
@@ -113,7 +117,88 @@
                 {!! isset($data->description) ? $data->description : '' !!}
                 
               </div>
-              <div class="col-3 col-sm-12" style="background-color: red"></div>
+              <div class="col-3 col-sm-12">
+
+                <div class="card-left-context">
+                  <div class="card-left-context-header">
+                    <img src="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}" class="img-fluid" width="26" alt="icon logo" />
+                    <span>Hotline tư vấn đăng ký mới</span>
+                  </div> 
+                  <div class="card-left-context-body" >
+                    <img src="{{ asset('nguoi_dung/img/submenu_contact.png') }}" class="img-fluid" width="51" alt="submenu contact" />
+                    <a href="tel:0988638092">0988638092</a>
+                  </div>
+              </div>
+              <div class="card-left-context">
+                <div class="card-left-context-header">
+                  <img src="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}" class="img-fluid" width="26" alt="icon logo" />
+                  <span>Tổng đài hỗ trợ kĩ thuật , báo hỏng</span>
+                </div> 
+                <div class="card-left-context-body" >
+                  <img src="{{ asset('nguoi_dung/img/phone_icon.png') }}" class="img-fluid" width="48" alt="submenu contact" />
+                  <a href="tel:1900 6600">1900 6600</a>
+                </div>
+              </div>
+              <div class="card-left-context">
+                <div class="card-left-context-header">
+                  <img src="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}" class="img-fluid" width="26" alt="icon logo" />
+                  <span>Đăng ký tư vấn Online miễn phí</span>
+                </div> 
+                <div class="card-left-context-body" style="text-align: start" >
+                  <div class="mb-3">
+                    <label for="inputEmailorSDT" class="form-label">Email hoặc Số điện thoại</label>
+                    <input type="email" class="form-control" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputHovaten" class="form-label">Họ và tên</label>
+                    <input type="hovaten" class="form-control" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputDiaChia" class="form-label">Đia chỉ</label>
+                    <input type="diachia" class="form-control" >
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-primary" style="width: 92%;"  >Đăng ký</button>
+                </div>
+              </div>
+              <div class="card-left-context">
+                <div class="card-left-context-header">
+                  <img src="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}" class="img-fluid" width="26" alt="icon logo" />
+                  <span>Tổng đài lắp mạng FPT Toàn Quốc</span>
+                </div> 
+                <div class="card-left-context-body" style="padding: 15px 0 0 0">
+                  <a href="tel:0988638092" style="font-size: 14px">LẮP MẠNG FPT KHU VỰC HÀ NỘI</a>
+                  <hr />
+                </div>
+                <div class="card-left-context-footer">
+                  <table class="table_khuvu" id="table_khuvu">
+                    <tr>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                      <td><a href="#">Mark</a> </td>
+                    </tr>
+                    
+                  </table>
+                </div>
+            </div>
+            </div>
+
+            
+          </div>
+
+
+              </div>
               
             </div>
           
