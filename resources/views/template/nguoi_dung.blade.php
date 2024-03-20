@@ -8,7 +8,7 @@
     <meta name="keywords" content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
     <meta name="description" content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
-    <title>{{$data->title}}</title>
+    <title>{{isset($data->title) ? $data->title : ''}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
@@ -110,7 +110,7 @@
             <div class="row">
               <div class="col-9 col-sm-12">
                 
-                {!!$data->description!!}
+                {!! isset($data->description) ? $data->description : '' !!}
                 
               </div>
               <div class="col-3 col-sm-12" style="background-color: red"></div>
