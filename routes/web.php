@@ -4,9 +4,13 @@ use App\Http\Controllers\admin\BlogMenuController;
 use App\Http\Controllers\admin\BlogTinhThanh;
 use App\Http\Controllers\admin\khuvucController;
 use App\Http\Controllers\admin\tinhthanhController;
+use App\Http\Controllers\admin\tinhthanhCtrl;
 use App\Http\Controllers\login\loginController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\showttContorller as ControllersShowttContorller;
+use App\Http\Controllers\showttController;
 use App\Models\baiviet;
+use App\Models\khuvuc;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,10 +55,19 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/bai-viet-menu', [BlogMenuController::class, 'index'])->name('menu.index');
     Route::get('/add-bai-viet-menu', [BlogMenuController::class, 'create'])->name('menu.create');
-    Route::match(['get', 'post'], '/upload', [BlogMenuController::class, 'upload'])->name('menu.upload');
+    Route::post('/upload', [BlogMenuController::class, 'upload'])->name('menu.upload');
     Route::post('/add-bai-viet-menu', [BlogMenuController::class, 'store'])->name('menu.store');
-    Route::get('/sua-bai-viet/{id}', [BlogMenuController::class, 'show'])->name('menu.edit');
-    Route::post('/sua-bai-viet/{id}', [BlogMenuController::class, 'update'])->name('menu.update');
+    Route::get('/edit/{id}',[BlogMenuController::class, 'show'])->name('menu.edit');
+    Route::post('update/{id}', [BlogMenuController::class, 'update'])->name('menu.update');
+
+
+    //tinh thanh
+    Route::get('/bai-viet-tt', [tinhthanhCtrl::class, 'index'])->name('blogtt.index');
+    Route::get('/add-bai-viet', [tinhthanhCtrl::class, 'create'])->name('blogtt.create');
+    Route::match(['get', 'post'], '/upload', [tinhthanhCtrl::class, 'upload'])->name('blogtt.upload');
+    Route::post('/add-bai-viet-tt', [tinhthanhCtrl::class, 'store'])->name('blogtt.store');
+    Route::get('/sua-bai-viet/{id}', [tinhthanhCtrl::class, 'show'])->name('blogtt.edit');
+    Route::post('/sua-bai-viet/{id}', [tinhthanhCtrl::class, 'update'])->name('blogtt.update');
 
 
     Route::get('/chat', function () {
@@ -87,4 +100,4 @@ Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class,
 Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'spkithuat'])->name('menu.spkithuat');
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
 
-
+//

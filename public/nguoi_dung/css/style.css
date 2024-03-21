@@ -4,6 +4,9 @@
 .main{
     background: black;
 }
+.container{
+  max-width: 95%;
+}
 .container-main{
     background-color: #fff;
     width: 100%;

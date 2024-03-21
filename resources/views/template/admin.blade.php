@@ -85,7 +85,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{route('menu.index')}}">Menu</a>
-                        <a class="collapse-item" href="{{ route('blog.index') }}">Các tỉnh thành</a>
+                        <a class="collapse-item" href="{{ route('blogtt.index') }}">Các tỉnh thành</a>
                     </div>
                 </div>
             </li>

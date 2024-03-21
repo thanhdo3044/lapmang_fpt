@@ -31,7 +31,7 @@
                         <td class="d-inline-block text-truncate" style="max-width: 700px; max-height: 90px">{!!$item->description!!}</td>
 
                         <td>
-                            <a href="{{ route('menu.edit', ['id'=>$item->id])}}" class="d-flex justify-content-center"><i class="fas fa-edit"></i>
+                            {{--  --}}<a href="{{ route('menu.edit', ['id'=>$item->id])}}" class="d-flex justify-content-center"><i class="fas fa-edit"></i>
                             </a>
                         </td>
 
