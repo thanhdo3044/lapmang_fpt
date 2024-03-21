@@ -15,7 +15,7 @@
 
     <div class="card-header py-3">
       <h3 class="m-0 font-weight-bold text-primary text-align col">SỬA BÀI VIẾT</h3> <hr>
-    <form action="{{ route('blog.update', ['id'=>request()->route('id')]) }}" method="post">
+    <form action="{{ route('blogtt.update', ['id'=>request()->route('id')]) }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tiêu Đề</label>
@@ -33,7 +33,18 @@
             @endforeach
                 
             </select>
-
+            <div class="mb-3">
+                <label for="" class="form-label">Key word</label>
+                <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}"/>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Mô tả ngắn bài viết</label>
+                <input type="text" class="form-control" name="meta_description" value="{{$data->meta_description}}"/>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Mô tả tiêu đề</label>
+                <input type="text" class="form-control" name="meta_title" value="{{$data->meta_title}}"/>
+            </div>
             <textarea name="description" id="editor" cols="30" rows="10">{!! $data->description !!}</textarea>
           </div>
           
@@ -49,7 +60,7 @@
     CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                 
                 ckfinder: {
-                    uploadUrl: "{{ route('ckedit.upload', ['_token'=>csrf_token()]) }}"
+                    uploadUrl: "{{ route('blogtt.upload', ['_token'=>csrf_token()]) }}"
                 },
                 toolbar: {
                     items: [

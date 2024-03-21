@@ -4,19 +4,18 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\baiviet;
-use Illuminate\Http\Request;
+use App\Models\blogTT;
+use App\Models\tinhthanh;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
-class BlogMenuController extends Controller
+class tinhthanhCtrl extends Controller
 {
-       /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $data = baiviet::orderBy('id', 'desc')->paginate(15);
+        $data = blogTT::with('tinhthanh')->orderBy('id', 'desc')->paginate(15);
 
-        return view('admin.baiviet.menu.index', compact('data'));
+        return view('admin.baiviet.tinhthanh.index', compact('data'));
     }
 
     /**
@@ -24,8 +23,9 @@ class BlogMenuController extends Controller
      */
     public function create()
     {
-    //    dd('aaaa');
-        return view('admin.baiviet.menu.add');
+        $data = tinhthanh::all();
+        $blogTT = blogTT::get('id_dia_chi');
+        return view('admin.baiviet.tinhthanh.add', compact('data','blogTT'));
     }
     public function upload(Request $request)
     {
@@ -44,7 +44,7 @@ class BlogMenuController extends Controller
     }
     public function store(Request $request)
     {
-        $data = new baiviet();
+        $data = new blogTT();
 
         $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -57,7 +57,7 @@ class BlogMenuController extends Controller
         
         
         $data->save();
-        return redirect()->route('menu.index')->with('success', 'Thêm bài viết thành công');
+        return redirect()->route('blogtt.index')->with('success', 'Thêm bài viết thành công');
     }
 
     /**
@@ -65,9 +65,10 @@ class BlogMenuController extends Controller
      */
     public function show(string $id)
     {
-        $data = baiviet::find($id);
+        $data = blogTT::find($id);
+        $tinhthanh = tinhthanh::all();
 
-        return view('admin.baiviet.menu.edit', compact('data'));
+        return view('admin.baiviet.tinhthanh.edit', compact('data', 'tinhthanh'));
     }
 
     /**
@@ -75,7 +76,7 @@ class BlogMenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = baiviet::find($id);
+        $data = blogTT::find($id);
 
         $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -86,7 +87,7 @@ class BlogMenuController extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('menu.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('blogtt.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**

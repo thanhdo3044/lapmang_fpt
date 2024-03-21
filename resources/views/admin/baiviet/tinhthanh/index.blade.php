@@ -5,7 +5,7 @@
     <div class="card-header py-3">
         <div class="row">
             <h6 class="m-0 font-weight-bold text-primary col align-self-start d-flex">QUẢN LÝ BÀI VIẾT</h6>
-            <a href="{{ route('blog.create') }}" class="m-0 font-weight-bold btn btn-primary col-2 align-self-end"><i class="fas fa-plus"></i></a>
+            <a href="{{ route('blogtt.create') }}" class="m-0 font-weight-bold btn btn-primary col-2 align-self-end"><i class="fas fa-plus"></i></a>
         </div>
         
     </div>
@@ -31,7 +31,7 @@
                         <td class="d-inline-block text-truncate" style="max-width: 700px; max-height: 90px">{!!$item->description!!}</td>
 
                         <td>
-                            <a href="{{ route('blog.edit', ['id'=>$item->id])}}" class="d-flex justify-content-center"><i class="fas fa-edit"></i>
+                            <a href="{{ route('blogtt.edit', ['id'=>$item->id])}}" class="d-flex justify-content-center"><i class="fas fa-edit"></i>
                             </a>
                         </td>
 
