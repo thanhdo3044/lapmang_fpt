@@ -2,22 +2,31 @@
 <html lang="en">
 
 <head>
+   
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
+    <meta name="description"
+        content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
+    <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
+    <title>{{ isset($data->title) ? $data->title : '' }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/awesome-bootstrap-checkbox/0.3.7/awesome-bootstrap-checkbox.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
     <style>
         @import url(https://fonts.googleapis.com/css?family=Varela);
         .login{
-            background-color: #680d60
+            /* background-color: #680d60 */
         }
         html {
             height: 100%;
@@ -33,7 +42,10 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #680d60
+            background-image: url('{{ asset('nguoi_dung/img/i1.jpg') }}');
+            background-color: #680d60;
+            background-size: cover;
+            /* background-blend-mode: saturation; */
         }
 
         label {
@@ -55,7 +67,8 @@
         }
 
         body.login {
-            background: rgba(255, 255, 255, 1);
+            /* background: rgba(255, 255, 255, 1); */
+
         }
 
         .relative {
@@ -80,16 +93,19 @@
         .second {
             right: 0;
         }
+        .backgroud-body{
 
+        }
         .login-container-wrapper {
             max-width: 400px;
             margin: 2% auto 5%;
             padding: 40px;
             box-sizing: border-box;
-            background: rgba(57, 89, 116, 0.8);
+            background: #187ffcb2;
             position: relative;
-            box-shadow: 0px 30px 60px -5px #000;
-            background-image: url('https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
+            border: 1px solid #008749;
+            /* box-shadow: 0px 30px 60px -5px #000; */
+            /* background-image: url('https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ'); */
             background-size: cover;
             background-blend-mode: saturation;
         }
@@ -103,7 +119,7 @@
         .login-container-wrapper li {
             text-align: center;
             padding: 0 15px;
-            background-color: #283443;
+            background-color: #fff;
             height: 50px;
             line-height: 50px;
             box-shadow: inset 0 -2px 0 0 #ccc;
@@ -111,17 +127,18 @@
         }
 
         .login-container-wrapper li a {
-            color: #fff;
+            color: #000;
+            font-weight: bolder;
         }
 
         .login-container-wrapper li a:hover {
-            color: #ccc;
+            color: #000000;
             text-decoration: none;
         }
 
         .login-container-wrapper li a:active,
         .login-container-wrapper li a:focus {
-            color: #fff;
+            color: #000;
             text-decoration: none;
         }
 
@@ -165,10 +182,10 @@
         .login input[type="password"],
         .login input[type="text"],
         .login input:focus {
-            background-color: rgba(40, 52, 67, 0.75);
+            /* background-color: rgba(40, 52, 67, 0.75); */
             border: 0px solid #4a525f;
-            color: #eee;
-            border-left: 45px solid #93a5ab;
+            color: #000000;
+            border-left: 45px solid #EF8300;
             border-radius: 40px;
         }
 
@@ -229,59 +246,63 @@
 
 <body class="login">
     <div class="container">
-        <div class="login-container-wrapper clearfix">
-            <ul class="switcher clearfix">
-                <li class="first logo active" data-tab="login">
-                    <a>Đăng Nhập</a>
-                </li>
-                <li class="second logo" data-tab="sign_up">
-                    <a>Đăng kí</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="login">
-                    <form class="form-horizontal login-form" action="{{ route('auth.login') }}" method="post">
-                        @csrf
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_password" placeholder="Số điện thoại"
-                                required="" type="number" name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
-                        </div>
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
-                                required="" type="password" name="password"> <i class="fa fa-lock"></i>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
-                        </div>
-                        <hr />
-                    </form>
-                </div>
-                <div class="tab-pane" id="sign_up">
-                    <form class="form-horizontal login-form" action="{{ route('auth.signup') }}" method="post">
-                        @csrf
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_username" placeholder="Họ tên"
-                                required="" type="text" name="name"> <i class="fa fa-user"></i>
-                        </div>
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_username" placeholder="Nhập email(không bắt buộc)"
-                                required="" type="text" name="email"> <i class="fa fa-envelope-open" aria-hidden="true"></i>
-                        </div>
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_username" placeholder="Số điện thoại"
-                                required="" type="number" required name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
-                        </div>
-                        <div class="form-group relative">
-                            <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
-                                required="" type="password" required name="password"> <i class="fa fa-lock"></i>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-success btn-lg btn-block" type="submit">Sign Up</button>
-                        </div>
-                        <hr>
-                    </form>
+        <div class="backgroud-body">
+
+            <div class="login-container-wrapper clearfix">
+                <ul class="switcher clearfix">
+                    <li class="first logo active" data-tab="login">
+                        <a>Đăng Nhập</a>
+                    </li>
+                    <li class="second logo" data-tab="sign_up">
+                        <a>Đăng kí</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="login">
+                        <form class="form-horizontal login-form" action="{{ route('auth.login') }}" method="post">
+                            @csrf
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_password" placeholder="Số điện thoại"
+                                    required="" type="number" name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
+                                    required="" type="password" name="password"> <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success btn-lg btn-block" type="submit">Đăng nhập</button>
+                            </div>
+                            <hr />
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="sign_up">
+                        <form class="form-horizontal login-form" action="{{ route('auth.signup') }}" method="post">
+                            @csrf
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_username" placeholder="Họ tên"
+                                    required="" type="text" name="name"> <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_username" placeholder="Nhập email(không bắt buộc)"
+                                    required="" type="text" name="email"> <i class="fa fa-envelope-open" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_username" placeholder="Số điện thoại"
+                                    required="" type="number" required name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group relative">
+                                <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
+                                    required="" type="password" required name="password"> <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success btn-lg btn-block" type="submit">Đăng ký</button>
+                            </div>
+                            <hr>
+                        </form>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
     <script>
