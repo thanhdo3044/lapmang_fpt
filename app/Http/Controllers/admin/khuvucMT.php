@@ -3,20 +3,19 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\baiviet;
+use App\Models\BlogMT;
 use Illuminate\Http\Request;
+use App\Models\tinhthanh;
 use Illuminate\Support\Str;
 
-class BlogMenuController extends Controller
+class khuvucMT extends Controller
 {
-       /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $data = baiviet::where('id_dia_chi',)->orderBy('id', 'desc')->paginate(15);
+        $title = "KHU VỰC MIỀN TRUNG";
+        $data = BlogMT::with('tinhthanh')->orderBy('id', 'desc')->paginate(15);
 
-        return view('admin.baiviet.menu.index', compact('data'));
+        return view('admin.baiviet.mientrung.index', compact('data', 'title'));
     }
 
     /**
@@ -24,8 +23,9 @@ class BlogMenuController extends Controller
      */
     public function create()
     {
-    //    dd('aaaa');
-        return view('admin.baiviet.menu.add');
+        $data = tinhthanh::where('id_khu_vuc',4)->get();
+        $blogTT = BlogMT::all();
+        return view('admin.baiviet.mientrung.add', compact('data','blogTT'));
     }
     public function upload(Request $request)
     {
@@ -44,7 +44,7 @@ class BlogMenuController extends Controller
     }
     public function store(Request $request)
     {
-        $data = new baiviet();
+        $data = new BlogMT();
 
         $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -57,7 +57,7 @@ class BlogMenuController extends Controller
         
         
         $data->save();
-        return redirect()->route('menu.index')->with('success', 'Thêm bài viết thành công');
+        return redirect()->route('blogmt.index')->with('success', 'Thêm bài viết thành công');
     }
 
     /**
@@ -65,9 +65,10 @@ class BlogMenuController extends Controller
      */
     public function show(string $id)
     {
-        $data = baiviet::find($id);
+        $data = BlogMT::find($id);
+        $tinhthanh = tinhthanh::all();
 
-        return view('admin.baiviet.menu.edit', compact('data'));
+        return view('admin.baiviet.mientrung.edit', compact('data', 'tinhthanh'));
     }
 
     /**
@@ -75,7 +76,7 @@ class BlogMenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = baiviet::find($id);
+        $data = BlogMT::find($id);
 
         $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -86,7 +87,7 @@ class BlogMenuController extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('menu.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('blogmt.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**

@@ -15,11 +15,11 @@
 
     <div class="card-header py-3">
       <h3 class="m-0 font-weight-bold text-primary text-align col">SỬA BÀI VIẾT</h3> <hr>
-    <form action="{{ route('blogtt.update', ['id'=>request()->route('id')]) }}" method="post">
+    <form action="{{ route('blogmb.update', ['id'=>request()->route('id')]) }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tiêu Đề</label>
-            <input type="text" class="form-control" name="title" value="{{$data->title}}" required>
+            <input type="text" class="form-control" name="title" value="{{$data->title}}">
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Khu vực</label>
@@ -27,7 +27,6 @@
                 class="form-select form-select-lg"
                 name="id_dia_chi"
                 id=""
-                required
             >
             @foreach ($tinhthanh as $item)
             <option value="{{$item->id}}" {{$item->id == $data->id_dia_chi ? 'selected' : '' }}>{{$item->ten_tinh_thanh}}</option>
@@ -46,7 +45,7 @@
                 <label for="" class="form-label">Mô tả tiêu đề</label>
                 <input type="text" class="form-control" name="meta_title" value="{{$data->meta_title}}"/>
             </div>
-            <textarea name="description" id="editor" cols="30" rows="10" required>{!! $data->description !!}</textarea>
+            <textarea name="description" id="editor" cols="30" rows="10">{!! $data->description !!}</textarea>
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -61,7 +60,7 @@
     CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                 
                 ckfinder: {
-                    uploadUrl: "{{ route('blogtt.upload', ['_token'=>csrf_token()]) }}"
+                    uploadUrl: "{{ route('blogmb.upload', ['_token'=>csrf_token()]) }}"
                 },
                 toolbar: {
                     items: [

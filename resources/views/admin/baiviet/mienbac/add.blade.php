@@ -17,16 +17,16 @@
         <div class="card-header py-3">
             <h3 class="m-0 font-weight-bold text-primary text-align col">THÊM KHU VỰC</h3>
             <hr>
-            <form action="{{ route('blogtt.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('blogmb.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Tiêu Đề</label>
-                    <input type="text" class="form-control" name="title" required>
+                    <input type="text" class="form-control" name="title">
 
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Khu vực</label>
-                    <select class="form-select form-select-lg" name="id_dia_chi" id="" required>
+                    <select class="form-select form-select-lg" name="id_dia_chi" id="">
 
                         @foreach ($data as $item)
                             @php
@@ -56,7 +56,7 @@
                         <label for="" class="form-label">Mô tả tiêu đề</label>
                         <input type="text" class="form-control" name="meta_title" />
                     </div>
-                    <textarea name="description" id="editor" cols="30" rows="10" required></textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -71,7 +71,7 @@
         CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
 
             ckfinder: {
-                uploadUrl: "{{ route('blogtt.upload', ['_token' => csrf_token()]) }}"
+                uploadUrl: "{{ route('blogmb.upload', ['_token' => csrf_token()]) }}"
             },
             toolbar: {
                 items: [

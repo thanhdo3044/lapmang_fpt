@@ -8,7 +8,7 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tên Tỉnh Thành</label>
-            <input type="text" class="form-control" name="ten_tinh_thanh">
+            <input type="text" class="form-control" name="ten_tinh_thanh" required>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Khu vực</label>
@@ -16,6 +16,7 @@
                 class="form-select form-select-lg"
                 name="id_khu_vuc"
                 id=""
+                required
             >
             @foreach ($data as $item)
             <option value="{{$item->id}}">{{$item->ten_khu_vuc}}</option>

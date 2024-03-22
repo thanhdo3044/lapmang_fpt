@@ -8,7 +8,7 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tên khu vực</label>
-            <input type="text" class="form-control" name="ten_khu_vuc">
+            <input type="text" class="form-control" name="ten_khu_vuc" required>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         

@@ -176,23 +176,125 @@
                                 width="26" alt="icon logo" />
                             <span style="font-size: 15px">Đăng ký tư vấn Online miễn phí</span>
                         </div>
-                        <div class="card-left-context-body" style="text-align: start">
-                            <div class="mb-3">
-                                <label for="inputEmailorSDT" class="form-label">Email hoặc Số điện thoại</label>
-                                <input type="email" class="form-control">
+                        @if (Auth::user())
+                        <form action="{{ route('dangkidv') }}" method="post">
+                            @csrf
+                            <div class="card-left-context-body" style="text-align: start">
+                                <div class="mb-3">
+                                    <label for="inputHovaten" class="form-label">Họ và tên</label>
+                                    <input type="hovaten" class="form-control" required name="ten" value="{{Auth::user()->name}}">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
+                                    <input type="number" class="form-control" id="numberInput" name="phone"
+                                        oninput="limitLength(this, 10)" value="{{Auth::user()->phone}}">
+    
+                                    <script>
+                                        function limitLength(element, maxLength) {
+                                            if (element.value.length > maxLength) {
+                                                element.value = element.value.slice(0, maxLength);
+                                            }
+                                        }
+                                    </script>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="inputDiaChia" class="form-label">Đia chỉ</label>
+                                    <input type="diachia" class="form-control" name="diachi">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Dịch vụ tư vấn</label>
+                                    <select class="form-select form-select-mb" name="dichvu" id="" required>
+                                        <option value="1" selected>Đăng kí internet fpt</option>
+                                        <option value="2">Combo internet và truyền hình fpt</option>
+                                        <option value="3">FPT play box</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Ngày đăng kí</label>
+                                    <input type="datetime-local" class="form-control" name="datenow"
+                                        id="currentDateTime"/>
+                                    <script>
+                                        // Lấy ngày và giờ hiện tại
+                                        var currentDate = new Date();
+    
+                                        // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
+                                        currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
+    
+                                        // Format ngày và giờ hiện tại dưới dạng chuỗi
+                                        var formattedDate = currentDate.toISOString().slice(0, 16);
+    
+                                        // Đặt giá trị cho input datetime-local
+                                        document.getElementById("currentDateTime").value = formattedDate;
+                                    </script>
+                                </div>
+    
                             </div>
                             <div class="mb-3">
-                                <label for="inputHovaten" class="form-label">Họ và tên</label>
-                                <input type="hovaten" class="form-control">
+                                <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng ký</button>
+                            </div>
+                        </form>
+                        @else
+                        <form action="{{ route('dangkidv') }}" method="post">
+                            @csrf
+                            <div class="card-left-context-body" style="text-align: start">
+                                <div class="mb-3">
+                                    <label for="inputHovaten" class="form-label">Họ và tên</label>
+                                    <input type="hovaten" class="form-control" required name="ten" value="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
+                                    <input type="number" class="form-control" id="numberInput" name="phone"
+                                        oninput="limitLength(this, 10)" value="" required>
+    
+                                    <script>
+                                        function limitLength(element, maxLength) {
+                                            if (element.value.length > maxLength) {
+                                                element.value = element.value.slice(0, maxLength);
+                                            }
+                                        }
+                                    </script>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="inputDiaChia" class="form-label">Đia chỉ</label>
+                                    <input type="diachia" class="form-control" name="diachi" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Dịch vụ tư vấn</label>
+                                    <select class="form-select form-select-mb" name="dichvu" id="" required>
+                                        <option value="1" selected>Đăng kí internet fpt</option>
+                                        <option value="2">Combo internet và truyền hình fpt</option>
+                                        <option value="3">FPT play box</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3" style="display: none">
+                                    <label for="" class="form-label">Ngày đăng kí</label>
+                                    <input type="datetime-local" class="form-control" name="datenow"
+                                        id="currentDateTime"/>
+                                    <script>
+                                        // Lấy ngày và giờ hiện tại
+                                        var currentDate = new Date();
+    
+                                        // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
+                                        currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
+    
+                                        // Format ngày và giờ hiện tại dưới dạng chuỗi
+                                        var formattedDate = currentDate.toISOString().slice(0, 16);
+    
+                                        // Đặt giá trị cho input datetime-local
+                                        document.getElementById("currentDateTime").value = formattedDate;
+                                    </script>
+                                </div>
+    
                             </div>
                             <div class="mb-3">
-                                <label for="inputDiaChia" class="form-label">Đia chỉ</label>
-                                <input type="diachia" class="form-control">
+                                <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng ký</button>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng ký</button>
-                        </div>
+                        </form>
+                        @endif
+                        
+                        
                     </div>
                     <div class="card-left-context">
                         <div class="card-left-context-header">
@@ -210,7 +312,9 @@
                                 <table class="table_khuvu" id="table_khuvu">
                                     <tr>
                                         @foreach ($item->tinhthanh as $value)
-                                            <td><a href="{{ route('bvtt', [$data->slug, 'id'=>$value->id,]) }}">{{ $value->ten_tinh_thanh }}</a></td>
+                                            <td><a
+                                                    href="{{ route('bvtt', [$data->slug, 'id' => $value->id]) }}">{{ $value->ten_tinh_thanh }}</a>
+                                            </td>
                                             @if ($loop->iteration % 3 == 0)
                                     </tr>
                                     <tr>

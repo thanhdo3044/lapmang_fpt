@@ -17,7 +17,7 @@
         <div class="card-header py-3">
             <h3 class="m-0 font-weight-bold text-primary text-align col">THÊM KHU VỰC</h3>
             <hr>
-            <form action="{{ route('blogtt.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('blogmt.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Tiêu Đề</label>
@@ -71,7 +71,7 @@
         CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
 
             ckfinder: {
-                uploadUrl: "{{ route('blogtt.upload', ['_token' => csrf_token()]) }}"
+                uploadUrl: "{{ route('blogmt.upload', ['_token' => csrf_token()]) }}"
             },
             toolbar: {
                 items: [

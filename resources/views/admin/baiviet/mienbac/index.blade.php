@@ -6,7 +6,7 @@
             <div class="row">
                 <h6 class="m-0 font-weight-bold text-primary col align-self-start d-flex">QUẢN LÝ BÀI VIẾT -
                     {{ $title }}</h6>
-                <a href="{{ route('blogtt.create') }}" class="m-0 font-weight-bold btn btn-primary col-2 align-self-end"><i
+                <a href="{{ route('blogmb.create') }}" class="m-0 font-weight-bold btn btn-primary col-2 align-self-end"><i
                         class="fas fa-plus"></i></a>
             </div>
 
@@ -34,7 +34,7 @@
                                     {!! $item->description !!}</td>
 
                                 <td>
-                                    <a href="{{ route('blogtt.edit', ['id' => $item->id]) }}"
+                                    <a href="{{ route('blogmb.edit', ['id' => $item->id]) }}"
                                         class="d-flex justify-content-center"><i class="fas fa-edit"></i>
                                     </a>
                                 </td>
