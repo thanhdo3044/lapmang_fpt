@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords"
-        content="lắp mạng fpt, lắp đặt internet fpt, cáp quang fpt, lắp wifi fpt, tổng đài fpt, giá cước internet fpt, đăng ký mạng fpt, khuyến mại FPT">
+        content="lắp mạng fpt, internet cáp quang FPT,internet cáp quang FPT và Truyền Hình FPT, internet fpt, giá lắp mạng fpt, bảng giá lắp mạng fpt, khuyến mại FPT, lắp wifi fpt, ">
     <meta name="description"
         content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
@@ -19,7 +19,12 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('nguoi_dung/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <style>
+        figure.image img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -205,7 +210,7 @@
                                 <table class="table_khuvu" id="table_khuvu">
                                     <tr>
                                         @foreach ($item->tinhthanh as $value)
-                                            <td><a href="#">{{ $value->ten_tinh_thanh }}</a></td>
+                                            <td><a href="{{ route('bvtt', [$data->slug, 'id'=>$value->id,]) }}">{{ $value->ten_tinh_thanh }}</a></td>
                                             @if ($loop->iteration % 3 == 0)
                                     </tr>
                                     <tr>

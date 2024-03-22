@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\baiviet;
+use App\Models\blogTT;
 use App\Models\khuvuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -75,6 +76,14 @@ class MenuController extends Controller
     
     public function ttvscs() {
         $data = baiviet::where('id', 11)->first();
+        $tinhthanh = khuvuc::with('tinhthanh')->get();
+        return view('template.nguoi_dung', compact('data','tinhthanh'));
+    }
+
+    //show cac bai viet tinh thanh
+
+    public function bvtt($id) {
+        $data = blogTT::where('id_dia_chi', $id)->first();
         $tinhthanh = khuvuc::with('tinhthanh')->get();
         return view('template.nguoi_dung', compact('data','tinhthanh'));
     }

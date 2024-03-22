@@ -101,3 +101,4 @@ Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class,
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
 
 //
+Route::get('/{id}', [MenuController::class, 'bvtt'])->name('bvtt');
