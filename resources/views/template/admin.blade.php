@@ -356,8 +356,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
+                <div class="container my-auto">
                     <!-- Page Heading -->
                     @yield('content')
 
@@ -366,7 +365,7 @@
 
             </div>
             <!-- End of Main Content -->
-
+            
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
