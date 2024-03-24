@@ -262,13 +262,15 @@
                         <form class="form-horizontal login-form" action="{{ route('auth.login') }}" method="post">
                             @csrf
                             <div class="form-group relative">
-                                <input class="form-control input-lg" id="login_password" placeholder="Số điện thoại"
-                                    required="" type="number" name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
-                            </div>
+                                <input class="form-control input-lg" id="login_user" placeholder="Số điện thoại"
+                                    required="" type="text" name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                    <small id="result_NumberHelp" class="form-text text-muted text-danger" style="font-weight: bolder"></small>
+                                </div>
                             <div class="form-group relative">
                                 <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
                                     required="" type="password" name="password"> <i class="fa fa-lock"></i>
-                            </div>
+                                    <small id="result_PasswordHelp" class="form-text text-muted text-danger" style="font-weight: bolder;"></small>
+                                </div>
                             <div class="form-group">
                                 <button class="btn btn-success btn-lg btn-block" type="submit">Đăng nhập</button>
                             </div>
@@ -281,19 +283,23 @@
                             <div class="form-group relative">
                                 <input class="form-control input-lg" id="login_username" placeholder="Họ tên"
                                     required="" type="text" name="name"> <i class="fa fa-user"></i>
-                            </div>
+                                    <small id="result_NamedHelp" class="form-text text-muted text-danger" style="font-weight: bolder;"></small>
+                                </div>
                             <div class="form-group relative">
-                                <input class="form-control input-lg" id="login_username" placeholder="Nhập email(không bắt buộc)"
+                                <input class="form-control input-lg" id="login_email" placeholder="Nhập email(không bắt buộc)"
                                     required="" type="text" name="email"> <i class="fa fa-envelope-open" aria-hidden="true"></i>
-                            </div>
+                                    <small id="result_EmaildHelp" class="form-text text-muted text-danger" style="font-weight: bolder;"></small>
+                                </div>
                             <div class="form-group relative">
-                                <input class="form-control input-lg" id="login_username" placeholder="Số điện thoại"
-                                    required="" type="number" required name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
-                            </div>
+                                <input class="form-control input-lg" id="sign_user" placeholder="Số điện thoại"
+                                    required="" type="text" required name="phone"> <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                    <small id="result_SignHelp" class="form-text text-muted text-danger" style="font-weight: bolder"></small>
+                                </div>
                             <div class="form-group relative">
-                                <input class="form-control input-lg" id="login_password" placeholder="Mật khẩu"
+                                <input class="form-control input-lg" id="sign_pass" placeholder="Mật khẩu"
                                     required="" type="password" required name="password"> <i class="fa fa-lock"></i>
-                            </div>
+                                    <small id="result_PassHelp" class="form-text text-muted text-danger" style="font-weight: bolder;"></small>
+                                </div>
                             <div class="form-group">
                                 <button class="btn btn-success btn-lg btn-block" type="submit">Đăng ký</button>
                             </div>
@@ -317,6 +323,41 @@
                 $(this).addClass('active');
                 $("#" + tab_id).addClass('active');
             })
+
+            $('#login_user').on('input',function() {
+                let login_user = $(this).val();
+                let isValidPhoneNumber = /^\d{10}$/.test(login_user);
+                $('#result_NumberHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng thông tin !')
+            })
+            $('#login_password').on('input',function() {
+                let password = $(this).val();
+                let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
+                $('#result_PasswordHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
+            })
+            $('#login_username').on('input',function() {
+                let name = $(this).val();
+                let isValidPhoneNumber = /^\D*$/.test(name);
+                $('#result_NamedHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng tên của bạn !')
+            })
+            $('#login_email').on('input',function() {
+                let name = $(this).val();
+                let isValidPhoneNumber = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(name);
+                $('#result_EmaildHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng mail bạn đang sử dụng !')
+            })
+            $('#sign_user').on('input',function() {
+                let name = $(this).val();
+                let isValidPhoneNumber = /^\d{10}$/.test(name);
+                $('#result_SignHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng thông tin !')
+            })
+            $('#sign_pass').on('input',function() {
+                let name = $(this).val();
+                let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(name);
+                $('#result_PassHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
+            })
+
+            
+            
+            
 
         })
     </script>

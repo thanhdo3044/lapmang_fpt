@@ -1,13 +1,21 @@
 @extends('template.admin')
 @section('content')
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <iframe src="{{ route('chatify') }}" frameborder="0" style="width: 100%; height: 500px;"></iframe>
-            </div>
-        </div>
-    </div>
+    <iframe src="{{ route('chatify') }}" 
+    frameborder="0" 
+    class="Chat-user-custem "
+    frameborder="1"></iframe>
+
+ 
 
 
+
+    <style>
+        .Chat-user-custem{
+            width: 100%;
+            height: 550px;
+            border-color: transparent;
+            margin-left: 2px;
+        }
+    </style>
 @endsection
