@@ -313,7 +313,7 @@
                                     <tr>
                                         @foreach ($item->tinhthanh as $value)
                                             <td><a
-                                                    href="{{ route('bvtt', [$data->slug, 'id' => $value->id]) }}">{{ $value->ten_tinh_thanh }}</a>
+                                                    href="{{ route('bvtt', ['lap-dat-mang-fpt-tai-'.$value->slug, 'id' => $value->id]) }}">{{ $value->ten_tinh_thanh }}</a>
                                             </td>
                                             @if ($loop->iteration % 3 == 0)
                                     </tr>

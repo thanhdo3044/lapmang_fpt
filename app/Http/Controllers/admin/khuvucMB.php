@@ -87,7 +87,7 @@ class khuvucMB extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('blogtt.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('blogmb.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**
