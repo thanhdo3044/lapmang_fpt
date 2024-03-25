@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 {{-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> --}}
@@ -85,7 +85,10 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{route('menu.index')}}">Menu</a>
-                        <a class="collapse-item" href="{{ route('blogtt.index') }}">Các tỉnh thành</a>
+                        <a class="collapse-item" href="{{ route('blogtt.index') }}">Khu vực Hà Nội</a>
+                        <a class="collapse-item" href="{{ route('blogmb.index') }}">Khu vực Miền Bắc</a>
+                        <a class="collapse-item" href="{{ route('blogmt.index') }}">Khu vực Miền Trung</a>
+                        <a class="collapse-item" href="{{ route('blogmn.index') }}">Khu vực Miền Nam</a>
                     </div>
                 </div>
             </li>
@@ -121,7 +124,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('chat')}}">
+                <a class="nav-link" href="{{ route('chatify') }}" target="_blank">
                     <i class='fab fa-rocketchat'></i>
                     <span>Nhắn tin</span></a>
             </li>

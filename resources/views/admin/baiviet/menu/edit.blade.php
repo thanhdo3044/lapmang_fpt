@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" name="meta_description" value="{{$data->meta_description}}"/>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Mô tả ngắn bài viết</label>
+                <label for="" class="form-label">Mô tả ngắn tiêu đề</label>
                 <input type="text" class="form-control" name="meta_title" value="{{$data->meta_title}}"/>
             </div>
 

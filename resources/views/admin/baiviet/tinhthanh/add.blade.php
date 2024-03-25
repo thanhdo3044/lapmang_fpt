@@ -21,12 +21,12 @@
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Tiêu Đề</label>
-                    <input type="text" class="form-control" name="title">
+                    <input type="text" class="form-control" name="title" required>
 
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Khu vực</label>
-                    <select class="form-select form-select-lg" name="id_dia_chi" id="">
+                    <select class="form-select form-select-lg" name="id_dia_chi" id="" required>
 
                         @foreach ($data as $item)
                             @php
@@ -56,7 +56,7 @@
                         <label for="" class="form-label">Mô tả tiêu đề</label>
                         <input type="text" class="form-control" name="meta_title" />
                     </div>
-                    <textarea name="description" id="editor" cols="30" rows="10"></textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

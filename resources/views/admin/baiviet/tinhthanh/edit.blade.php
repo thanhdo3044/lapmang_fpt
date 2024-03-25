@@ -19,7 +19,7 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tiêu Đề</label>
-            <input type="text" class="form-control" name="title" value="{{$data->title}}">
+            <input type="text" class="form-control" name="title" value="{{$data->title}}" required>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Khu vực</label>
@@ -27,6 +27,7 @@
                 class="form-select form-select-lg"
                 name="id_dia_chi"
                 id=""
+                required
             >
             @foreach ($tinhthanh as $item)
             <option value="{{$item->id}}" {{$item->id == $data->id_dia_chi ? 'selected' : '' }}>{{$item->ten_tinh_thanh}}</option>
@@ -45,7 +46,7 @@
                 <label for="" class="form-label">Mô tả tiêu đề</label>
                 <input type="text" class="form-control" name="meta_title" value="{{$data->meta_title}}"/>
             </div>
-            <textarea name="description" id="editor" cols="30" rows="10">{!! $data->description !!}</textarea>
+            <textarea name="description" id="editor" cols="30" rows="10" required>{!! $data->description !!}</textarea>
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>

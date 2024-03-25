@@ -3,6 +3,10 @@
 use App\Http\Controllers\admin\BlogMenuController;
 use App\Http\Controllers\admin\BlogTinhThanh;
 use App\Http\Controllers\admin\khuvucController;
+use App\Http\Controllers\admin\khuvucMB;
+use App\Http\Controllers\admin\khuvucMN;
+use App\Http\Controllers\admin\khuvucMT;
+use App\Http\Controllers\admin\serviceSignupCtr;
 use App\Http\Controllers\admin\tinhthanhController;
 use App\Http\Controllers\admin\tinhthanhCtrl;
 use App\Http\Controllers\login\loginController;
@@ -25,9 +29,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('template.admin');
-    });
+    Route::get('/dashboard',[serviceSignupCtr::class, 'index'])->name('dashboard');
+    
     Route::get('/khu-vuc', [khuvucController::class, 'index'])->name('khuvuc.index');
     Route::get('/add-khu-vuc', [khuvucController::class, 'create'])->name('khuvuc.create');
     Route::post('/add-khu-vuc', [khuvucController::class, 'store'])->name('khuvuc.store');
@@ -61,14 +64,39 @@ Route::middleware('admin')->group(function () {
     Route::post('update/{id}', [BlogMenuController::class, 'update'])->name('menu.update');
 
 
-    //tinh thanh
-    Route::get('/bai-viet-tt', [tinhthanhCtrl::class, 'index'])->name('blogtt.index');
+    //khu vực hà nội
+    Route::get('/bai-viet-kvhn', [tinhthanhCtrl::class, 'index'])->name('blogtt.index');
     Route::get('/add-bai-viet', [tinhthanhCtrl::class, 'create'])->name('blogtt.create');
     Route::match(['get', 'post'], '/upload', [tinhthanhCtrl::class, 'upload'])->name('blogtt.upload');
-    Route::post('/add-bai-viet-tt', [tinhthanhCtrl::class, 'store'])->name('blogtt.store');
+    Route::post('/add-bai-viet-kvhn', [tinhthanhCtrl::class, 'store'])->name('blogtt.store');
     Route::get('/sua-bai-viet/{id}', [tinhthanhCtrl::class, 'show'])->name('blogtt.edit');
     Route::post('/sua-bai-viet/{id}', [tinhthanhCtrl::class, 'update'])->name('blogtt.update');
 
+    //khu vực miền bắc
+    Route::prefix('kvmb')->group(function () {
+        Route::get('/bai-viet', [khuvucMB::class, 'index'])->name('blogmb.index');
+        Route::get('/add-bai-viet', [khuvucMB::class, 'create'])->name('blogmb.create');
+        Route::match(['get', 'post'], '/upload', [khuvucMB::class, 'upload'])->name('blogmb.upload');
+        Route::post('/add-bai-viet', [khuvucMB::class, 'store'])->name('blogmb.store');
+        Route::get('/sua-bai-viet/{id}', [khuvucMB::class, 'show'])->name('blogmb.edit');
+        Route::post('/sua-bai-viet/{id}', [khuvucMB::class, 'update'])->name('blogmb.update');
+    });
+    Route::prefix('kvmt')->group(function () {
+        Route::get('/bai-viet', [khuvucMT::class, 'index'])->name('blogmt.index');
+        Route::get('/add-bai-viet', [khuvucMT::class, 'create'])->name('blogmt.create');
+        Route::match(['get', 'post'], '/upload', [khuvucMT::class, 'upload'])->name('blogmt.upload');
+        Route::post('/add-bai-viet', [khuvucMT::class, 'store'])->name('blogmt.store');
+        Route::get('/sua-bai-viet/{id}', [khuvucMT::class, 'show'])->name('blogmt.edit');
+        Route::post('/sua-bai-viet/{id}', [khuvucMT::class, 'update'])->name('blogmt.update');
+    });
+    Route::prefix('kvmn')->group(function () {
+        Route::get('/bai-viet', [khuvucMN::class, 'index'])->name('blogmn.index');
+        Route::get('/add-bai-viet', [khuvucMN::class, 'create'])->name('blogmn.create');
+        Route::match(['get', 'post'], '/upload', [khuvucMN::class, 'upload'])->name('blogmn.upload');
+        Route::post('/add-bai-viet', [khuvucMN::class, 'store'])->name('blogmn.store');
+        Route::get('/sua-bai-viet/{id}', [khuvucMN::class, 'show'])->name('blogmn.edit');
+        Route::post('/sua-bai-viet/{id}', [khuvucMN::class, 'update'])->name('blogmn.update');
+    });
 
     Route::get('/chat', function () {
         return view('admin.chat.index'); 
@@ -101,3 +129,8 @@ Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class,
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
 
 //
+Route::get('/{id}', [MenuController::class, 'bvtt'])->name('bvtt');
+
+
+
+Route::post('dangkidv', [serviceSignupCtr::class, 'store'])->name('dangkidv');

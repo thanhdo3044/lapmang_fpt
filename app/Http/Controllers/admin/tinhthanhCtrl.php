@@ -13,9 +13,10 @@ class tinhthanhCtrl extends Controller
 {
     public function index()
     {
+        $title = "KHU VUC HÀ NỘI";
         $data = blogTT::with('tinhthanh')->orderBy('id', 'desc')->paginate(15);
 
-        return view('admin.baiviet.tinhthanh.index', compact('data'));
+        return view('admin.baiviet.tinhthanh.index', compact('data', 'title'));
     }
 
     /**
@@ -24,7 +25,7 @@ class tinhthanhCtrl extends Controller
     public function create()
     {
         $data = tinhthanh::all();
-        $blogTT = blogTT::get('id_dia_chi');
+        $blogTT = blogTT::get('id_dia_chi', 1);
         return view('admin.baiviet.tinhthanh.add', compact('data','blogTT'));
     }
     public function upload(Request $request)
