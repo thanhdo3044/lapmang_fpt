@@ -13,7 +13,8 @@ class serviceSignupCtr extends Controller
      */
     public function index()
     {
-        
+        $data = dangkidv::orderBy('id', 'desc')->get();
+        return view('admin.dangkidv.index', compact('data'));
     }
 
     /**

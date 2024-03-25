@@ -14,7 +14,7 @@ class BlogMenuController extends Controller
      */
     public function index()
     {
-        $data = baiviet::where('id_dia_chi',)->orderBy('id', 'desc')->paginate(15);
+        $data = baiviet::orderBy('id', 'desc')->paginate(15);
 
         return view('admin.baiviet.menu.index', compact('data'));
     }

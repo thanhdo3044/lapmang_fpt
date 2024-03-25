@@ -57,7 +57,7 @@ class khuvucMN extends Controller
         
         
         $data->save();
-        return redirect()->route('blogmt.index')->with('success', 'Thêm bài viết thành công');
+        return redirect()->route('blogmn.index')->with('success', 'Thêm bài viết thành công');
     }
 
     /**
@@ -87,7 +87,7 @@ class khuvucMN extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('blogmt.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('blogmn.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**

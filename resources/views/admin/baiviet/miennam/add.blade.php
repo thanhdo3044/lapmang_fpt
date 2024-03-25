@@ -56,7 +56,7 @@
                         <label for="" class="form-label">Mô tả tiêu đề</label>
                         <input type="text" class="form-control" name="meta_title" />
                     </div>
-                    <textarea name="description" id="editor" cols="30" rows="10" required></textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

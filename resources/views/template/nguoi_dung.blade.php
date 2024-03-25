@@ -5,26 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords"
-        content="lắp mạng fpt, internet cáp quang FPT,internet cáp quang FPT và Truyền Hình FPT, internet fpt, giá lắp mạng fpt, bảng giá lắp mạng fpt, khuyến mại FPT, lắp wifi fpt, ">
-    <meta name="description"
-        content="Công ty cổ phần viễn thông FPT - Website cập nhật khuyến mại mới nhất về lắp đặt Internet cáp quang FPT, Truyền hình FPT -  Miễn phí 100% lắp đặt - Miễn phí thiết bị modem wifi thế hệ mới nhất - khảo sát và tư vấn tại nhà khách hàng hoàn toàn miễn phí">
+    <meta name="keywords" content="{{ isset($data->keywords) ? $data->keywords : '' }}">
+    <meta name="description" content="{{ isset($data->meta_discription) ? $data->meta_discription : '' }}">
+    <meta property="og:description" content="{{ isset($data->meta_discription) ? $data->meta_discription : '' }}">
     <link rel="icon" href="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}">
     <title>{{ isset($data->title) ? $data->title : '' }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Công ty cổ phần viễn thông FPT | FPT Telecom | Lắp mạng internet cáp quang FPT">
+    <meta property="og:title" content="{{ isset($data->meta_title) ? $data->meta_title : '' }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('nguoi_dung/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        figure.image img {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -103,7 +95,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('menu.goicuoccb') }}">Gói Cước Cơ Bản</a>
                                 </li>
-                                <li><a class="dropdown-item" href="{{ route('menu.goicuocmr') }}">Gói Mở Rộng</a></li>
+                                <li><a class="dropdown-item" href="{{ route('menu.goicuocmr') }}">Gói Mở Rộng</a>
+                                </li>
                                 <li><a class="dropdown-item" href="{{ route('menu.danhsachkenh') }}">Danh Sách
                                         Kênh</a></li>
                             </ul>
@@ -137,11 +130,11 @@
                     class="fab fa-salesforce">
             </h5>
         </marquee>
-        <div class="container-fluid">
+        <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-sm-12">
+                <div class="col-9 col-s-12">
 
-                    {!! isset($data->description) ? $data->description : '' !!}
+                    {!! isset($data->description) ? str_replace('<img', '<img class="custom-image"', $data->description) : '' !!}
 
                 </div>
                 <div class="col-3 col-sm-12">
@@ -177,124 +170,130 @@
                             <span style="font-size: 15px">Đăng ký tư vấn Online miễn phí</span>
                         </div>
                         @if (Auth::user())
-                        <form action="{{ route('dangkidv') }}" method="post">
-                            @csrf
-                            <div class="card-left-context-body" style="text-align: start">
-                                <div class="mb-3">
-                                    <label for="inputHovaten" class="form-label">Họ và tên</label>
-                                    <input type="hovaten" class="form-control" required name="ten" value="{{Auth::user()->name}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
-                                    <input type="number" class="form-control" id="numberInput" name="phone"
-                                        oninput="limitLength(this, 10)" value="{{Auth::user()->phone}}">
-    
-                                    <script>
-                                        function limitLength(element, maxLength) {
-                                            if (element.value.length > maxLength) {
-                                                element.value = element.value.slice(0, maxLength);
+                            <form action="{{ route('dangkidv') }}" method="post">
+                                @csrf
+                                <div class="card-left-context-body" style="text-align: start">
+                                    <div class="mb-3">
+                                        <label for="inputHovaten" class="form-label">Họ và tên</label>
+                                        <input type="hovaten" class="form-control" required name="ten"
+                                            value="{{ Auth::user()->name }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
+                                        <input type="number" class="form-control" id="numberInput" name="phone"
+                                            oninput="limitLength(this, 10)" value="{{ Auth::user()->phone }}">
+
+                                        <script>
+                                            function limitLength(element, maxLength) {
+                                                if (element.value.length > maxLength) {
+                                                    element.value = element.value.slice(0, maxLength);
+                                                }
                                             }
-                                        }
-                                    </script>
+                                        </script>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="inputDiaChia" class="form-label">Đia chỉ</label>
+                                        <input type="diachia" class="form-control" name="diachi">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Dịch vụ tư vấn</label>
+                                        <select class="form-select form-select-mb" name="dichvu" id=""
+                                            required>
+                                            <option value="Đăng kí internet" selected>Đăng kí internet fpt</option>
+                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền hình fpt</option>
+                                            <option value="FPT PlayBox">FPT play box</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3" style="display: none;">
+                                        <label for="" class="form-label">Ngày đăng kí</label>
+                                        <input type="datetime-local" class="form-control" name="datenow"
+                                            id="currentDateTime" />
+                                        <script>
+                                            // Lấy ngày và giờ hiện tại
+                                            var currentDate = new Date();
+
+                                            // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
+                                            currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
+
+                                            // Format ngày và giờ hiện tại dưới dạng chuỗi
+                                            var formattedDate = currentDate.toISOString().slice(0, 16);
+
+                                            // Đặt giá trị cho input datetime-local
+                                            document.getElementById("currentDateTime").value = formattedDate;
+                                        </script>
+                                    </div>
+
                                 </div>
-    
                                 <div class="mb-3">
-                                    <label for="inputDiaChia" class="form-label">Đia chỉ</label>
-                                    <input type="diachia" class="form-control" name="diachi">
+                                    <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng
+                                        ký</button>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Dịch vụ tư vấn</label>
-                                    <select class="form-select form-select-mb" name="dichvu" id="" required>
-                                        <option value="1" selected>Đăng kí internet fpt</option>
-                                        <option value="2">Combo internet và truyền hình fpt</option>
-                                        <option value="3">FPT play box</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Ngày đăng kí</label>
-                                    <input type="datetime-local" class="form-control" name="datenow"
-                                        id="currentDateTime"/>
-                                    <script>
-                                        // Lấy ngày và giờ hiện tại
-                                        var currentDate = new Date();
-    
-                                        // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
-                                        currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
-    
-                                        // Format ngày và giờ hiện tại dưới dạng chuỗi
-                                        var formattedDate = currentDate.toISOString().slice(0, 16);
-    
-                                        // Đặt giá trị cho input datetime-local
-                                        document.getElementById("currentDateTime").value = formattedDate;
-                                    </script>
-                                </div>
-    
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng ký</button>
-                            </div>
-                        </form>
+                            </form>
                         @else
-                        <form action="{{ route('dangkidv') }}" method="post">
-                            @csrf
-                            <div class="card-left-context-body" style="text-align: start">
-                                <div class="mb-3">
-                                    <label for="inputHovaten" class="form-label">Họ và tên</label>
-                                    <input type="hovaten" class="form-control" required name="ten" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
-                                    <input type="number" class="form-control" id="numberInput" name="phone"
-                                        oninput="limitLength(this, 10)" value="" required>
-    
-                                    <script>
-                                        function limitLength(element, maxLength) {
-                                            if (element.value.length > maxLength) {
-                                                element.value = element.value.slice(0, maxLength);
+                            <form action="{{ route('dangkidv') }}" method="post">
+                                @csrf
+                                <div class="card-left-context-body" style="text-align: start">
+                                    <div class="mb-3">
+                                        <label for="inputHovaten" class="form-label">Họ và tên</label>
+                                        <input type="hovaten" class="form-control" required name="ten"
+                                            value="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputEmailorSDT" class="form-label">Số điện thoại</label>
+                                        <input type="number" class="form-control" id="numberInput" name="phone"
+                                            oninput="limitLength(this, 10)" value="" required>
+
+                                        <script>
+                                            function limitLength(element, maxLength) {
+                                                if (element.value.length > maxLength) {
+                                                    element.value = element.value.slice(0, maxLength);
+                                                }
                                             }
-                                        }
-                                    </script>
+                                        </script>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="inputDiaChia" class="form-label">Đia chỉ</label>
+                                        <input type="diachia" class="form-control" name="diachi" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Dịch vụ tư vấn</label>
+                                        <select class="form-select form-select-mb" name="dichvu" id=""
+                                            required>
+                                            <option value="1" selected>Đăng kí internet fpt</option>
+                                            <option value="2">Combo internet và truyền hình fpt</option>
+                                            <option value="3">FPT play box</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3" style="display: none;">
+                                        <label for="" class="form-label">Ngày đăng kí</label>
+                                        <input type="datetime-local" class="form-control" name="datenow"
+                                            id="currentDateTime" />
+                                        <script>
+                                            // Lấy ngày và giờ hiện tại
+                                            var currentDate = new Date();
+
+                                            // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
+                                            currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
+
+                                            // Format ngày và giờ hiện tại dưới dạng chuỗi
+                                            var formattedDate = currentDate.toISOString().slice(0, 16);
+
+                                            // Đặt giá trị cho input datetime-local
+                                            document.getElementById("currentDateTime").value = formattedDate;
+                                        </script>
+                                    </div>
+
                                 </div>
-    
                                 <div class="mb-3">
-                                    <label for="inputDiaChia" class="form-label">Đia chỉ</label>
-                                    <input type="diachia" class="form-control" name="diachi" required>
+                                    <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng
+                                        ký</button>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Dịch vụ tư vấn</label>
-                                    <select class="form-select form-select-mb" name="dichvu" id="" required>
-                                        <option value="1" selected>Đăng kí internet fpt</option>
-                                        <option value="2">Combo internet và truyền hình fpt</option>
-                                        <option value="3">FPT play box</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3" style="display: none">
-                                    <label for="" class="form-label">Ngày đăng kí</label>
-                                    <input type="datetime-local" class="form-control" name="datenow"
-                                        id="currentDateTime"/>
-                                    <script>
-                                        // Lấy ngày và giờ hiện tại
-                                        var currentDate = new Date();
-    
-                                        // Thêm 7 giờ (7 * 60 * 60 * 1000 milliseconds) cho múi giờ
-                                        currentDate.setTime(currentDate.getTime() + (7 * 60 * 60 * 1000));
-    
-                                        // Format ngày và giờ hiện tại dưới dạng chuỗi
-                                        var formattedDate = currentDate.toISOString().slice(0, 16);
-    
-                                        // Đặt giá trị cho input datetime-local
-                                        document.getElementById("currentDateTime").value = formattedDate;
-                                    </script>
-                                </div>
-    
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary" style="width: 92%;">Đăng ký</button>
-                            </div>
-                        </form>
+                            </form>
                         @endif
-                        
-                        
+
+
                     </div>
                     <div class="card-left-context">
                         <div class="card-left-context-header">
@@ -313,7 +312,7 @@
                                     <tr>
                                         @foreach ($item->tinhthanh as $value)
                                             <td><a
-                                                    href="{{ route('bvtt', ['lap-dat-mang-fpt-tai-'.$value->slug, 'id' => $value->id]) }}">{{ $value->ten_tinh_thanh }}</a>
+                                                    href="{{ route('bvtt', ['lap-dat-mang-fpt-tai-' . $value->slug, 'id' => $value->id]) }}">{{ $value->ten_tinh_thanh }}</a>
                                             </td>
                                             @if ($loop->iteration % 3 == 0)
                                     </tr>

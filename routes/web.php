@@ -29,9 +29,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('template.admin');
-    });
+    Route::get('/dashboard',[serviceSignupCtr::class, 'index'])->name('dashboard');
+    
     Route::get('/khu-vuc', [khuvucController::class, 'index'])->name('khuvuc.index');
     Route::get('/add-khu-vuc', [khuvucController::class, 'create'])->name('khuvuc.create');
     Route::post('/add-khu-vuc', [khuvucController::class, 'store'])->name('khuvuc.store');
