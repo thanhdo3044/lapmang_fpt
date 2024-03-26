@@ -66,7 +66,7 @@
 
         <nav class="navbar navbar-expand-lg menu">
             <div class="container-fluid">
-
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
                         <img src="{{ asset('nguoi_dung/img/icon-menu.svg') }}" alt="icon menu" />
                     </span>
                 </button>
-<div class="title-mobi1 d-flex justify-content-center align-items-center">
+                <div class="title-mobi1 d-flex justify-content-center align-items-center">
                     <img class=" img-fluid"  src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
                         height="48" />
                 </div>
@@ -137,7 +137,7 @@
         </marquee>
         <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-s-12">
+                <div class="col-9 col-s-12 image-container">
 
                     {!! isset($data->description) ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description) : '' !!}
 
@@ -479,8 +479,16 @@
             </div>
         </div>
 
-    </div>
+        <div class="fixe_menu_mobi">
+            <div class="icon_lieuhemobi">
+                <a href="tel:0988638092">
+                    <i class="fas fa-phone-volume">0988638092</i>
+                </a>
+            </div>
+        </div>
 
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
