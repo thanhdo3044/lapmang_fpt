@@ -24,30 +24,30 @@
 
         <div class="row title">
             <div class="title-menu col-12 d-flex justify-content-center align-items-center" style="text-align: center">
-                <h1>Website đăng ký các dịch vụ của FPT Telecom</h1>
+                <h1 class="title-mobi">Website đăng ký các dịch vụ của FPT Telecom</h1>
             </div>
             <div class=" col-12 row ">
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
                         height="48" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
                     </span>  --}}
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('nguoi_dung/img/logo_fpt_internet.png') }}" alt="logofptmobile" />
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logo_fpt_internet.png') }}" alt="logofptmobile" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
                     </span>  --}}
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('nguoi_dung/img/icoilogotruyeninhfot.png') }}" alt="logofptmobile" />
+                    <img class="title-mobi"  src="{{ asset('nguoi_dung/img/icoilogotruyeninhfot.png') }}" alt="logofptmobile" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
                     </span>  --}}
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('nguoi_dung/img/box_103x38.png') }}" alt="logofptmobile" />
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/box_103x38.png') }}" alt="logofptmobile" />
                 </div>
             </div>
 
@@ -66,6 +66,7 @@
 
         <nav class="navbar navbar-expand-lg menu">
             <div class="container-fluid">
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +74,10 @@
                         <img src="{{ asset('nguoi_dung/img/icon-menu.svg') }}" alt="icon menu" />
                     </span>
                 </button>
+                <div class="title-mobi1 d-flex justify-content-center align-items-center">
+                    <img class=" img-fluid"  src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
+                        height="48" />
+                </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
                         <li class="nav-item">
@@ -132,9 +137,9 @@
         </marquee>
         <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-s-12">
+                <div class="col-9 col-s-12 image-container">
 
-                    {!! isset($data->description) ? str_replace('<img', '<img class="custom-image"', $data->description) : '' !!}
+                    {!! isset($data->description) ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description) : '' !!}
 
                 </div>
                 <div class="col-3 col-sm-12">
@@ -339,11 +344,11 @@
 
     <div class="footer">
         <div class="row">
-            <div class="  col-4 d-flex justify-content-center align-items-center image-container">
+            <div class="  col-6 d-flex justify-content-center align-items-center image-container">
                 <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="250"
                     class="img-footer-start" />
             </div>
-            <div class="col-4 row footer-center">
+            <div class="col-6 row footer-center">
                 <div class="col-12">
                     <h3>Trụ sở :</h3>
                 </div>
@@ -359,11 +364,15 @@
                     Thuận Đông, Quận 7</a>
 
             </div>
-            <div class="col-4 d-flex justify-content-center align-items-center image-container">
-                <iframe class="footer-end"
+            <div class="col-12 d-flex justify-content-center align-items-center image-container">
+                {{-- <iframe class="footer-end"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.74291387615!2d105.68703787477385!3d21.20236938179401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134feaca1c9a91f%3A0x49da2c9ab147bd4a!2zU8OibiBW4bqtbiDEkOG7mW5nIFRow7RuIFbEg24gTMO0aQ!5e0!3m2!1svi!2s!4v1710515367206!5m2!1svi!2s"
                     width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+                    
+                    <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center " >
+                        Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300 2222 - ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy phép số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                    </div>
             </div>
         </div>
     </div>
@@ -371,7 +380,7 @@
 
     <div class="fixed-menu">
 
-        <div style="color: #000080;" id="DienThoai">
+        <div style="color: #000080;" id="DienThoai1">
             <div class="icon_lienhe" id="id_chat_lieuhe">
                 <a href="https://zalo.me/0988638092">
                     <svg id="Layer_1" viewBox="0 0 460.1 436.6" xmlns="http://www.w3.org/2000/svg">
@@ -415,7 +424,7 @@
             </div>
         </div>
 
-        <div style="color: #000080;" id="DienThoai">
+        <div style="color: #000080;" id="DienThoai2">
             <div class="icon_lienhe" id="id_chat_lieuhe">
                 <a href="tel:0988638092">
                     <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
@@ -433,7 +442,7 @@
             </div>
         </div>
 
-        <div style="color: #000080;" id="DienThoai">
+        <div style="color: #000080;" id="DienThoai3">
 
             <div class="icon_lienhe" id="id_chat_lieuhe">
                 <a href="https://www.facebook.com/profile.php?id=100000930934345&mibextid=dGKdO6">
@@ -444,7 +453,7 @@
 
         </div>
 
-        <div style="color: #000080;" id="DienThoai">
+        <div style="color: #000080;" id="DienThoai4">
             <div class="icon_lienhe" id="id_chat_lieuhe">
                 <a href="{{ route('chatify') }}"><svg id="Layer_1" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -470,13 +479,31 @@
             </div>
         </div>
 
-    </div>
+        <div class="fixe_menu_mobi">
+            <div class="icon_lieuhemobi">
+                <a href="tel:0988638092">
+                    <i class="fas fa-phone-volume">0988638092</i>
+                </a>
+            </div>
+        </div>
 
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="{{ asset('nguoi_dung/js/index.js') }}"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TW0VR0ZM64');
+    </script>
 </body>
 
 </html>

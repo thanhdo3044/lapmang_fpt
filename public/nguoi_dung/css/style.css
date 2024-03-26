@@ -75,6 +75,14 @@
     text-align: center;
   }
 
+  .fixe_menu_mobi{
+    position: fixed;
+    border: 0;
+    left: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0 0 -40px 3px;
+  }
   .icon_lienhe{
       border: 5px solid #008749;
       border-radius:15px; 
@@ -82,6 +90,19 @@
       width: 70px;
       background-color: #FFFFFF;
       margin: 5px;
+  }
+  .icon_lieuhemobi{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #008749;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .icon_lieuhemobi a{
+    /* border: 5px solid #008749; */
+    text-decoration: none;
+    color: #fff;
   }
   .icon_lienhe:hover{
     border: 5px solid #FFFFFF;
@@ -137,8 +158,8 @@
     width: 100%;
   }
   
-  @media only screen and (min-width: 600px) {
-    /* For tablets: */
+  /* @media only screen and (min-width: 600px) {
+
     .col-s-1 {width: 8.33%;}
     .col-s-2 {width: 16.66%;}
     .col-s-3 {width: 25%;}
@@ -151,8 +172,9 @@
     .col-s-10 {width: 83.33%;}
     .col-s-11 {width: 91.66%;}
     .col-s-12 {width: 100%;}
-  }
-  @media only screen and (max-width: 46.1875em) {
+
+  } */
+  /* @media only screen and (max-width: 46.1875em) {
     .blog{
       max-width: 46.1875em;
       height: auto;
@@ -161,8 +183,33 @@
       width: 0% !important;
       height: fit-content;
     }
-  }
+  } */
   
+  .title-mobi1{
+    display: none;
+  }
+  @media only screen and (max-width: 768px){
+    .title-mobi{display: none;}
+    #DienThoai1{display: none;}
+    #DienThoai3{display: none;}
+    #DienThoai2{display: none;}
+
+    .fixed-menu {
+      position: fixed;
+      bottom: 0;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .title-mobi1{
+      display: block;
+
+    }
+
+
+  }
   @media only screen and (min-width: 768px) {
     /* For desktop: */
     .col-1 {width: 8.33%;}
@@ -177,6 +224,8 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+    .fixe_menu_mobi{display: none;}
+
   }
   @keyframes blink {
     0% {
