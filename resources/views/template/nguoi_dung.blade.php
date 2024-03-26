@@ -132,7 +132,7 @@
         </marquee>
         <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-s-12">
+                <div class="col-9 col-sm-12">
 
                     {!! isset($data->description) ? str_replace('<img', '<img class="custom-image"', $data->description) : '' !!}
 
@@ -261,9 +261,9 @@
                                         <label for="" class="form-label">Dịch vụ tư vấn</label>
                                         <select class="form-select form-select-mb" name="dichvu" id=""
                                             required>
-                                            <option value="1" selected>Đăng kí internet fpt</option>
-                                            <option value="2">Combo internet và truyền hình fpt</option>
-                                            <option value="3">FPT play box</option>
+                                            <option value="Đăng kí internet fpt" selected>Đăng kí internet fpt</option>
+                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền hình fpt</option>
+                                            <option value="FPT play box">FPT play box</option>
                                         </select>
                                     </div>
                                     <div class="mb-3" style="display: none;">

@@ -329,11 +329,11 @@
                 let isValidPhoneNumber = /^\d{10}$/.test(login_user);
                 $('#result_NumberHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng thông tin !')
             })
-            $('#login_password').on('input',function() {
-                let password = $(this).val();
-                let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
-                $('#result_PasswordHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
-            })
+            // $('#login_password').on('input',function() {
+            //     let password = $(this).val();
+            //     let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
+            //     $('#result_PasswordHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
+            // })
             $('#login_username').on('input',function() {
                 let name = $(this).val();
                 let isValidPhoneNumber = /^\D*$/.test(name);
@@ -349,16 +349,11 @@
                 let isValidPhoneNumber = /^\d{10}$/.test(name);
                 $('#result_SignHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập đúng thông tin !')
             })
-            $('#sign_pass').on('input',function() {
-                let name = $(this).val();
-                let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(name);
-                $('#result_PassHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
-            })
-
-            
-            
-            
-
+            // $('#sign_pass').on('input',function() {
+            //     let name = $(this).val();
+            //     let isValidPhoneNumber = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(name);
+            //     $('#result_PassHelp').text(isValidPhoneNumber ? '' : 'Vui lòng nhập mật khẩu bao gồm 8 ký tự có chữ và số !')
+            // }) 
         })
     </script>
 </body>
