@@ -15,9 +15,9 @@
     <div class="card shadow mb-4">
 
         <div class="card-header py-3">
-            <h3 class="m-0 font-weight-bold text-primary text-align col">THÊM KHU VỰC HÀ NỘI</h3>
+            <h3 class="m-0 font-weight-bold text-primary text-align col">THÊM TIN TỨC</h3>
             <hr>
-            <form action="{{ route('blogtt.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('tintuc.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Tiêu Đề</label>
@@ -25,24 +25,6 @@
 
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Khu vực</label>
-                    <select class="form-select form-select-lg" name="id_dia_chi" id="" required>
-
-                        @foreach ($data as $item)
-                            @php
-                                $disabled = false;
-                                foreach ($blogTT as $value) {
-                                    if ($value->id_dia_chi == $item->id) {
-                                        $disabled = true;
-                                        break;
-                                    }
-                                }
-                            @endphp
-                            <option value="{{ $item->id }}" {{ $disabled ? 'disabled' : '' }}>
-                                {{ $item->ten_tinh_thanh }}</option>
-                        @endforeach
-
-                    </select>
 
                     <div class="mb-3">
                         <label for="" class="form-label">Key word</label>
@@ -56,7 +38,7 @@
                         <label for="" class="form-label">Mô tả tiêu đề</label>
                         <input type="text" class="form-control" name="meta_title" />
                     </div>
-                    <textarea name="description" id="editor" cols="30" rows="10" required></textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -71,7 +53,7 @@
         CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
 
             ckfinder: {
-                uploadUrl: "{{ route('blogtt.upload', ['_token' => csrf_token()]) }}"
+                uploadUrl: "{{ route('tintuc.upload', ['_token' => csrf_token()]) }}"
             },
             toolbar: {
                 items: [

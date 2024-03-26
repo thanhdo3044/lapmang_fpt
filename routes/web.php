@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\khuvucMT;
 use App\Http\Controllers\admin\serviceSignupCtr;
 use App\Http\Controllers\admin\tinhthanhController;
 use App\Http\Controllers\admin\tinhthanhCtrl;
+use App\Http\Controllers\admin\tintucCtrl;
 use App\Http\Controllers\login\loginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\showttContorller as ControllersShowttContorller;
@@ -97,6 +98,14 @@ Route::middleware('admin')->group(function () {
         Route::get('/sua-bai-viet/{id}', [khuvucMN::class, 'show'])->name('blogmn.edit');
         Route::post('/sua-bai-viet/{id}', [khuvucMN::class, 'update'])->name('blogmn.update');
     });
+    Route::prefix('tin-tuc')->group(function () {
+        Route::get('/bai-viet', [tintucCtrl::class, 'index'])->name('tintuc.index');
+        Route::get('/add-bai-viet', [tintucCtrl::class, 'create'])->name('tintuc.create');
+        Route::match(['get', 'post'], '/upload', [tintucCtrl::class, 'upload'])->name('tintuc.upload');
+        Route::post('/add-bai-viet', [tintucCtrl::class, 'store'])->name('tintuc.store');
+        Route::get('/sua-bai-viet/{id}', [tintucCtrl::class, 'show'])->name('tintuc.edit');
+        Route::post('/sua-bai-viet/{id}', [tintucCtrl::class, 'update'])->name('tintuc.update');
+    });
 
     Route::get('/chat', function () {
         return view('admin.chat.index'); 
@@ -127,6 +136,8 @@ Route::get('/fpt-play-box-tv-box-giai-tri-hang-dau-viet-nam-bien-tivi-thuong-tha
 Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'hotro'])->name('menu.hotro');
 Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'spkithuat'])->name('menu.spkithuat');
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
+Route::get('/tin-tuc-moi-cap-nhat-moi-nhat', [MenuController::class, 'tintucnew'])->name('tintuc.new');
+Route::get('/tin-tuc/{slug}', [MenuController::class, 'tintucsimilar'])->name('tintuc.similar');
 
 //
 Route::get('/{id}', [MenuController::class, 'bvtt'])->name('bvtt');

@@ -28,20 +28,22 @@
             </div>
             <div class=" col-12 row ">
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
-                        height="48" />
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
+                        width="146" height="48" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
                     </span>  --}}
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logo_fpt_internet.png') }}" alt="logofptmobile" />
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/logo_fpt_internet.png') }}"
+                        alt="logofptmobile" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
                     </span>  --}}
                 <div class="col-3 d-flex justify-content-center align-items-center">
-                    <img class="title-mobi"  src="{{ asset('nguoi_dung/img/icoilogotruyeninhfot.png') }}" alt="logofptmobile" />
+                    <img class="title-mobi" src="{{ asset('nguoi_dung/img/icoilogotruyeninhfot.png') }}"
+                        alt="logofptmobile" />
                 </div>
                 {{-- <span class="title-menu-img">
                         |
@@ -66,7 +68,7 @@
 
         <nav class="navbar navbar-expand-lg menu">
             <div class="container-fluid">
-                
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +77,8 @@
                     </span>
                 </button>
                 <div class="title-mobi1 d-flex justify-content-center align-items-center">
-                    <img class=" img-fluid"  src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="146"
-                        height="48" />
+                    <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
+                        width="146" height="48" />
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
@@ -123,6 +125,10 @@
                                         Sách</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
+                                Tức Mới</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -139,8 +145,71 @@
             <div class="row">
                 <div class="col-9 col-s-12 image-container">
 
-                    {!! isset($data->description) ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description) : '' !!}
+                    @if ($data)
+                        {{-- Kiểm tra nếu tồn tại $data thì show ra --}}
+                        {!! isset($data->description)
+                            ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description)
+                            : '' !!} <hr>
+                        @if (isset($similar))
+                            {{-- Kiểm tra nếu tồn tại $similar (Bài viết tương tụ) thì show ra --}}
+                            <h2>Bài viết tương tự</h2> <br>
+                            <div class="container-fluid">
+                                <div class="row tin-tuc-container">
+                                    @foreach ($similar as $value)
+                                        <div class="col-6 col-sm-12">
+                                            <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
+                                                <a href="{{route('tintuc.similar', ['slug'=>$value->slug])}}">{{ $value->title }}</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
 
+
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2"><button type="submit" id="show-more-btn" class="btn btn-primary ">Xem
+                                            thêm</button></div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <style>
+                                .tin-tuc-item.hidden {
+                                    display: none;
+                                }
+                            </style>
+                            <script>
+                                // public/js/scripts.js
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var tinTucItems = document.querySelectorAll('.tin-tuc-item');
+                                    var itemsToShow = 6;
+                                    var currentIndex = itemsToShow;
+
+                                    for (var i = itemsToShow; i < tinTucItems.length; i++) {
+                                        tinTucItems[i].classList.add('hidden');
+                                    }
+
+                                    document.getElementById('show-more-btn').addEventListener('click', function() {
+                                        for (var i = currentIndex; i < currentIndex + itemsToShow; i++) {
+                                            if (tinTucItems[i]) {
+                                                tinTucItems[i].classList.remove('hidden');
+                                            }
+                                        }
+                                        currentIndex += itemsToShow;
+
+                                        if (currentIndex >= tinTucItems.length) {
+                                            this.style.display = 'none';
+                                        }
+                                    });
+                                });
+                            </script>
+                        @else
+                            {{-- còn ko thì thôi, ko có show ra cả --}}
+                        @endif
+                    @else
+                        {{-- Còn ko thì 404 not found --}}
+                        <h1 class="d-flex justify-content-center">404 NOT FOUND</h1>
+                        <a href="{{ route('menu.trangchu') }}">Trở về trang chủ</a>
+                    @endif
                 </div>
                 <div class="col-3 col-sm-12">
 
@@ -206,7 +275,8 @@
                                         <select class="form-select form-select-mb" name="dichvu" id=""
                                             required>
                                             <option value="Đăng kí internet" selected>Đăng kí internet fpt</option>
-                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền hình fpt</option>
+                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền
+                                                hình fpt</option>
                                             <option value="FPT PlayBox">FPT play box</option>
                                         </select>
                                     </div>
@@ -267,7 +337,8 @@
                                         <select class="form-select form-select-mb" name="dichvu" id=""
                                             required>
                                             <option value="Đăng kí internet fpt" selected>Đăng kí internet fpt</option>
-                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền hình fpt</option>
+                                            <option value="Combo internet và truyền hình fpt">Combo internet và truyền
+                                                hình fpt</option>
                                             <option value="FPT play box">FPT play box</option>
                                         </select>
                                     </div>
@@ -300,6 +371,7 @@
 
 
                     </div>
+
                     <div class="card-left-context">
                         <div class="card-left-context-header">
                             <img src="{{ asset('nguoi_dung/img/FPT_logo_2010.svg.ico') }}" class="img-fluid"
@@ -369,10 +441,12 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.74291387615!2d105.68703787477385!3d21.20236938179401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134feaca1c9a91f%3A0x49da2c9ab147bd4a!2zU8OibiBW4bqtbiDEkOG7mW5nIFRow7RuIFbEg24gTMO0aQ!5e0!3m2!1svi!2s!4v1710515367206!5m2!1svi!2s"
                     width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-                    
-                    <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center " >
-                        Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300 2222 - ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy phép số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
-                    </div>
+
+                <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center ">
+                    Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300 2222 -
+                    ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy phép
+                    số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                </div>
             </div>
         </div>
     </div>
@@ -488,7 +562,7 @@
         </div>
 
     </div>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -498,11 +572,14 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-TW0VR0ZM64');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TW0VR0ZM64');
     </script>
 </body>
 

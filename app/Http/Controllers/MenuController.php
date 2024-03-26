@@ -7,6 +7,7 @@ use App\Models\baiviet;
 use App\Models\BlogMB;
 use App\Models\blogTT;
 use App\Models\khuvuc;
+use App\Models\TinTucNew;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -98,17 +99,6 @@ class MenuController extends Controller
 
     public function bvtt($id)
     {
-        // $data[] = [blogTT::where('id_dia_chi', $id)->first(),BlogMB::where('id_dia_chi', $id)->first()];
-        // $blogTT = blogTT::where('id_dia_chi', $id)->first();
-        // dd($blogTT);
-        // $blogMB = BlogMB::all();
-        // // dd($blogMB);
-        // $data = compact('blogTT', 'blogMB');
-        // dd($data);
-        // $blogTT = DB::table('blog_t_t_s');
-        // $blogMB = DB::table('blog_m_b_s');
-        // $blogMT = DB::table('blog_m_t_s');
-        // $blogMN = DB::table('blog_m_n_s');
 
         $all = DB::table('blog_t_t_s')
             ->select('*')
@@ -120,5 +110,17 @@ class MenuController extends Controller
         // dd($data);
         $tinhthanh = khuvuc::with('tinhthanh')->get();
         return view('template.nguoi_dung', compact('data', 'tinhthanh'));
+    }
+    public function tintucnew() {
+        $data = TinTucNew::orderBy('id', 'desc')->first();
+        $similar = TinTucNew::orderBy('id', 'desc')->skip(1)->take(9999999999)->get();
+        $tinhthanh = khuvuc::with('tinhthanh')->get();
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
+    }
+    public function tintucsimilar($slug)  {
+        $data = TinTucNew::where('slug', $slug)->first();
+        $similar = TinTucNew::whereNotIn('slug', [$slug])->orderBy('id', 'desc')->take(9999999999)->get();
+        $tinhthanh = khuvuc::with('tinhthanh')->get();
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
     }
 }
