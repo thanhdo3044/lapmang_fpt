@@ -205,6 +205,8 @@ max-width: 95%;
   }
   .title-mobi1{
     display: block;
+    margin: 0 auto;
+    text-align: center;
 
   }
 
