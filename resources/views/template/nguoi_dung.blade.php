@@ -129,6 +129,14 @@
                             <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
                                 Tức Mới</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
+                                Khuyến mãi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
+                                Tức Mới</a>
+                        </li>
                     </ul>
                 </div>
             </div>

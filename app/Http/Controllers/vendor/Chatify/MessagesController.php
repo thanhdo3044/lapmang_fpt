@@ -24,15 +24,15 @@ class MessagesController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function pusherAuth(Request $request)
-    {
-        return Chatify::pusherAuth(
-            $request->user(),
-            Auth::user(),
-            $request['channel_name'],
-            $request['socket_id']
-        );
-    }
+        public function pusherAuth(Request $request)
+        {
+            return Chatify::pusherAuth(
+                $request->user(),
+                Auth::user(),
+                $request['channel_name'],
+                $request['socket_id']
+            );
+        }
 
     /**
      * Returning the view of the app with the required data.

@@ -5,7 +5,8 @@
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
-                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
+                <a href="{{ route('menu.trangchu') }}"> <- Trang chủ FPT</a> <hr>
+                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">Hỗ trợ và tư vấn</span> </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
