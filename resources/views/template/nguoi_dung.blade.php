@@ -17,6 +17,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('nguoi_dung/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -86,14 +87,14 @@
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ route('menu.trangchu') }}" <i
-                                class="fas fa-home"></i>Trang Chủ</a>
+                                class="fas fa-home"></i> Trang Chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('menu.internet') }}"><i
-                                    class="fas fa-globe-europe"></i>Internet FPT</a>
+                                    class="fas fa-globe-europe"></i> Internet FPT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>Camera
+                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i> Camera
                                 FPT</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -110,10 +111,10 @@
                                         Kênh</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('menu.playbox') }}"><i class="fas fa-gamepad"></i>FPT
                                 Play Box</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="" role="button" data-bs-toggle="dropdown"
@@ -121,23 +122,19 @@
                                 <i class="fas fa-book"></i> Hỗ Trợ FPT
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}">Hỗi Trợ Kỹ
+                                <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}"> Hỗi Trợ Kỹ
                                         Thuật</a></li>
-                                <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}">Thủ Tục Và Chính
+                                <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}"> Thủ Tục Và Chính
                                         Sách</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i> Tin
                                 Tức Mới</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
+                            <a class="nav-link" href="{{ route('sale.new') }}"><i class="bi bi-fire"></i> Tin
                                 Khuyến mãi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
-                                Tức Mới</a>
                         </li>
                     </ul>
                 </div>
@@ -168,7 +165,7 @@
                                     @foreach ($similar as $value)
                                         <div class="col-6 col-sm-12">
                                             <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
-                                                <a href="{{route('tintuc.similar', ['slug'=>$value->slug])}}">{{ $value->title }}</a>
+                                                <a href="{{route('sale.similar', ['slug'=>$value->slug])}}">{{ $value->title }}</a>
                                             </div>
                                         </div>
                                     @endforeach

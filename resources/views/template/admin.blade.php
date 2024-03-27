@@ -101,7 +101,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('tintuc.index') }}">Tin Tức</a>
-                        <a class="collapse-item" href="register.html">Khuyến Mãi</a>
+                        <a class="collapse-item" href="{{route('sale.index')}}">Khuyến Mãi</a>
                     </div>
                 </div> 
             </li>

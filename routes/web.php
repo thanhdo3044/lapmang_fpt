@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\khuvucController;
 use App\Http\Controllers\admin\khuvucMB;
 use App\Http\Controllers\admin\khuvucMN;
 use App\Http\Controllers\admin\khuvucMT;
+use App\Http\Controllers\admin\khuyenmaiCtrl;
 use App\Http\Controllers\admin\serviceSignupCtr;
 use App\Http\Controllers\admin\tinhthanhController;
 use App\Http\Controllers\admin\tinhthanhCtrl;
@@ -106,6 +107,14 @@ Route::middleware('admin')->group(function () {
         Route::get('/sua-bai-viet/{id}', [tintucCtrl::class, 'show'])->name('tintuc.edit');
         Route::post('/sua-bai-viet/{id}', [tintucCtrl::class, 'update'])->name('tintuc.update');
     });
+    Route::prefix('khuyen-mai')->group(function () {
+        Route::get('/bai-viet', [khuyenmaiCtrl::class, 'index'])->name('sale.index');
+        Route::get('/add-bai-viet', [khuyenmaiCtrl::class, 'create'])->name('sale.create');
+        Route::match(['get', 'post'], '/upload', [khuyenmaiCtrl::class, 'upload'])->name('sale.upload');
+        Route::post('/add-bai-viet', [khuyenmaiCtrl::class, 'store'])->name('sale.store');
+        Route::get('/sua-bai-viet/{id}', [khuyenmaiCtrl::class, 'show'])->name('sale.edit');
+        Route::post('/sua-bai-viet/{id}', [khuyenmaiCtrl::class, 'update'])->name('sale.update');
+    });
 
     Route::get('/chat', function () {
         return view('admin.chat.index'); 
@@ -138,6 +147,9 @@ Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class,
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
 Route::get('/tin-tuc-moi-cap-nhat-moi-nhat', [MenuController::class, 'tintucnew'])->name('tintuc.new');
 Route::get('/tin-tuc/{slug}', [MenuController::class, 'tintucsimilar'])->name('tintuc.similar');
+Route::get('/khuyen-mai-moi-cap-nhat', [MenuController::class, 'khuyenmai'])->name('sale.new');
+Route::get('/khuyen-mai/{slug}', [MenuController::class, 'khuyenmaisimilar'])->name('sale.similar');
+
 
 //
 Route::get('/{id}', [MenuController::class, 'bvtt'])->name('bvtt');
