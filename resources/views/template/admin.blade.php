@@ -92,6 +92,19 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Viết Bài</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('tintuc.index') }}">Tin Tức</a>
+                        <a class="collapse-item" href="register.html">Khuyến Mãi</a>
+                    </div>
+                </div> 
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">

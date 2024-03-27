@@ -3,20 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\baiviet;
-use App\Models\blogTT;
-use App\Models\tinhthanh;
-use Illuminate\Support\Str;
+use App\Models\TinTucNew;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class tinhthanhCtrl extends Controller
+class tintucCtrl extends Controller
 {
     public function index()
     {
-        $title = "KHU VUC HÀ NỘI";
-        $data = blogTT::with('tinhthanh')->orderBy('id', 'desc')->paginate(15);
+        $title = "Tin tức mới";
+        $data = TinTucNew::paginate(15);
 
-        return view('admin.baiviet.tinhthanh.index', compact('data', 'title'));
+        return view('admin.tintuc.index', compact('data', 'title'));
     }
 
     /**
@@ -24,9 +22,7 @@ class tinhthanhCtrl extends Controller
      */
     public function create()
     {
-        $data = tinhthanh::where('id_khu_vuc', 1)->get();
-        $blogTT = blogTT::get('id_dia_chi', 1);
-        return view('admin.baiviet.tinhthanh.add', compact('data','blogTT'));
+        return view('admin.tintuc.add');
     }
     public function upload(Request $request)
     {
@@ -45,9 +41,9 @@ class tinhthanhCtrl extends Controller
     }
     public function store(Request $request)
     {
-        $data = new blogTT();
+        $data = new TinTucNew();
 
-        $data->id_dia_chi = $request->id_dia_chi;
+        // $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
         $data->slug = Str::slug($request->title);
         $data->description = $request->description;
@@ -58,7 +54,7 @@ class tinhthanhCtrl extends Controller
         
         
         $data->save();
-        return redirect()->route('blogtt.index')->with('success', 'Thêm bài viết thành công');
+        return redirect()->route('tintuc.index')->with('success', 'Thêm bài viết thành công');
     }
 
     /**
@@ -66,10 +62,10 @@ class tinhthanhCtrl extends Controller
      */
     public function show(string $id)
     {
-        $data = blogTT::find($id);
-        $tinhthanh = tinhthanh::where('id_khu_vuc', 1)->get();
+        $data = TinTucNew::find($id);
+        // $tinhthanh = tinhthanh::all();
 
-        return view('admin.baiviet.tinhthanh.edit', compact('data', 'tinhthanh'));
+        return view('admin.tintuc.edit', compact('data'));
     }
 
     /**
@@ -77,9 +73,9 @@ class tinhthanhCtrl extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = blogTT::find($id);
+        $data = TinTucNew::find($id);
 
-        $data->id_dia_chi = $request->id_dia_chi;
+        // $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
         // $data->slug = Str::slug($request->title);
         $data->description = $request->description;
@@ -88,7 +84,7 @@ class tinhthanhCtrl extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('blogtt.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('tintuc.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**
