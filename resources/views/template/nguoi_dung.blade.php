@@ -76,9 +76,11 @@
                         <img src="{{ asset('nguoi_dung/img/icon-menu.svg') }}" alt="icon menu" />
                     </span>
                 </button>
-                <div class="title-mobi1 d-flex justify-content-center align-items-center">
-                    <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
-                        width="146" height="48" />
+                <div class="title-mobi1">
+                    <div class=" d-flex justify-content-center align-items-center">
+                        <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
+                            width="146" height="48" />
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
