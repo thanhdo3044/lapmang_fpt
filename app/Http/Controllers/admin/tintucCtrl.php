@@ -90,8 +90,25 @@ class tintucCtrl extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function checkDeleteNews(Request $request){
+        $ids = $request->ids;
+        // dd($ids);
+        if(isset($ids)){
+            $check = TinTucNew::whereIn('id', $ids)->forceDelete();
+            if($check){
+                return redirect()->route('tintuc.index')->with('success', 'Xoá bài viết thành công');
+            }
+        }else{
+            toastr()->error('Xóa thất bại, chọn các mục cần xóa');
+            return back();
+        }
+        
+        
+    }
+    
+    public function destroy()
     {
-        //
+        TinTucNew::truncate();
+        return redirect()->route('tintuc.index')->with('success', 'Xoá bài viết thành công');
     }
 }

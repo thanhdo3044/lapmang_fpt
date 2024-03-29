@@ -106,6 +106,8 @@ Route::middleware('admin')->group(function () {
         Route::post('/add-bai-viet', [tintucCtrl::class, 'store'])->name('tintuc.store');
         Route::get('/sua-bai-viet/{id}', [tintucCtrl::class, 'show'])->name('tintuc.edit');
         Route::post('/sua-bai-viet/{id}', [tintucCtrl::class, 'update'])->name('tintuc.update');
+        Route::post( 'check-delete', [tintucCtrl::class, 'checkDeleteNews'])->name('checkDeleteNews');
+        Route::get('xoa-all', [tintucCtrl::class, 'destroy'])->name('deleteAllNews');
     });
     Route::prefix('khuyen-mai')->group(function () {
         Route::get('/bai-viet', [khuyenmaiCtrl::class, 'index'])->name('sale.index');
@@ -114,6 +116,8 @@ Route::middleware('admin')->group(function () {
         Route::post('/add-bai-viet', [khuyenmaiCtrl::class, 'store'])->name('sale.store');
         Route::get('/sua-bai-viet/{id}', [khuyenmaiCtrl::class, 'show'])->name('sale.edit');
         Route::post('/sua-bai-viet/{id}', [khuyenmaiCtrl::class, 'update'])->name('sale.update');
+        Route::post('checkDelete', [khuyenmaiCtrl::class, 'checkDelete'])->name('checkDelete');
+        Route::get('xoa-all', [khuyenmaiCtrl::class, 'destroy'])->name('deleteAll');
     });
 
     Route::get('/chat', function () {

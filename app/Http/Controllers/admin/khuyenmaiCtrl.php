@@ -90,8 +90,24 @@ class khuyenmaiCtrl extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function checkDelete(Request $request){
+        $ids = $request->ids;
+        dd($ids);
+        if(isset($ids)){
+            $check = khuyenMai::whereIn('id', $ids)->forceDelete();
+            if($check){
+                return redirect()->route('sale.index')->with('success', 'Xoá bài viết thành công');
+            }
+        }else{
+            toastr()->error('Xóa thất bại, chọn các mục cần xóa');
+            return back();
+        }
+        
+        
+    }
+    public function destroy()
     {
-        //
+        khuyenMai::truncate();
+        return redirect()->route('sale.index')->with('success', 'Xoá bài viết thành công');
     }
 }
