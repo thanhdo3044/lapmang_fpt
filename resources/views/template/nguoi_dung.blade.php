@@ -18,6 +18,18 @@
     <link rel="stylesheet" href="{{ asset('nguoi_dung/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TW0VR0ZM64');
+    </script>
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -79,8 +91,8 @@
                 </button>
                 <div class="title-mobi1">
                     <div class=" d-flex justify-content-center align-items-center">
-                        <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
-                            width="146" height="48" />
+                        <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}"
+                            alt="logofptmobile" width="146" height="48" />
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -90,11 +102,12 @@
                                 class="fas fa-home"></i> Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('menu.internet') }}"><i
-                                    class="fas fa-globe-europe"></i> Internet FPT</a>
+                            <a class="nav-link" href="{{ route('menu.internet') }}"><i class="fas fa-globe-europe"></i>
+                                Internet FPT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i> Camera
+                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>
+                                Camera
                                 FPT</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -129,7 +142,8 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i> Tin
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>
+                                Tin
                                 Tức Mới</a>
                         </li>
                         <li class="nav-item">
@@ -156,7 +170,8 @@
                         {{-- Kiểm tra nếu tồn tại $data thì show ra --}}
                         {!! isset($data->description)
                             ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description)
-                            : '' !!} <hr>
+                            : '' !!}
+                        <hr>
                         @if (isset($similar))
                             {{-- Kiểm tra nếu tồn tại $similar (Bài viết tương tụ) thì show ra --}}
                             <h2>Bài viết tương tự</h2> <br>
@@ -165,7 +180,8 @@
                                     @foreach ($similar as $value)
                                         <div class="col-6 col-sm-12">
                                             <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
-                                                <a href="{{route('sale.similar', ['slug'=>$value->slug])}}">{{ $value->title }}</a>
+                                                <a
+                                                    href="{{ route('sale.similar', ['slug' => $value->slug]) }}">{{ $value->title }}</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -173,7 +189,8 @@
 
                                 </div>
                                 <div class="row d-flex justify-content-center">
-                                    <div class="col-2"><button type="submit" id="show-more-btn" class="btn btn-primary ">Xem
+                                    <div class="col-2"><button type="submit" id="show-more-btn"
+                                            class="btn btn-primary ">Xem
                                             thêm</button></div>
 
                                 </div>
