@@ -155,29 +155,65 @@
             </div>
         </nav>
 
-
         <marquee behavior="scroll" scrollamount="8" height="30" direction="left">
-            <h5 style="color: red">
-                <i class="fab fa-salesforce"></i>KM áp dụng khu vực Hà Nội : COMBO cả Internet wifi và Truyền hình<i
-                    class="fab fa-salesforce">
-            </h5>
+            <strong>
+                <h5 style="color: red">
+                    @if (isset($marquee))
+                        @foreach ($marquee as $item)
+                            <img src="https://lapmangfpt.vn/files/assets/hn.gif" alt="" width="39"
+                                height="23">
+                            {{ $item->noidung }} <img src="https://lapmangfpt.vn/files/assets/hn.gif" alt=""
+                                width="39" height="23">
+                        @endforeach
+
+                    @endif
+                </h5>
+            </strong>
         </marquee>
+        <table></table>
         <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-s-12 image-container">
+                <div class="col-9 col-s-12 image-container table-responsive">
 
                     @if ($data)
                         {{-- Kiểm tra nếu tồn tại $data thì show ra --}}
                         {!! isset($data->description)
-                            ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description)
+                            ? str_replace(
+                                ['<table', '<img'],
+                                ['<table class="table table-striped"', '<img class="custom-image img-fluid"'],
+                                $data->description,
+                            )
                             : '' !!}
                         <hr>
-                        @if (isset($similar))
+                        @if (isset($similarTT))
                             {{-- Kiểm tra nếu tồn tại $similar (Bài viết tương tụ) thì show ra --}}
                             <h2>Bài viết tương tự</h2> <br>
                             <div class="container-fluid">
                                 <div class="row tin-tuc-container">
-                                    @foreach ($similar as $value)
+                                    @foreach ($similarTT as $value)
+                                        <div class="col-6 col-sm-12">
+                                            <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
+                                                <a
+                                                    href="{{ route('tintuc.similar', ['slug' => $value->slug]) }}">{{ $value->title }}</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2"><button type="submit" id="show-more-btn"
+                                            class="btn btn-primary ">Xem
+                                            thêm</button></div>
+
+                                </div>
+                            </div>
+                        @elseif(isset($similarKM))
+                            {{-- còn ko thì thôi, ko có show ra cả --}}
+                            <h2>Bài viết tương tự</h2> <br>
+                            <div class="container-fluid">
+                                <div class="row tin-tuc-container">
+                                    @foreach ($similarKM as $value)
                                         <div class="col-6 col-sm-12">
                                             <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
                                                 <a
@@ -195,40 +231,38 @@
 
                                 </div>
                             </div>
-                            <br>
-                            <style>
-                                .tin-tuc-item.hidden {
-                                    display: none;
-                                }
-                            </style>
-                            <script>
-                                // public/js/scripts.js
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    var tinTucItems = document.querySelectorAll('.tin-tuc-item');
-                                    var itemsToShow = 6;
-                                    var currentIndex = itemsToShow;
-
-                                    for (var i = itemsToShow; i < tinTucItems.length; i++) {
-                                        tinTucItems[i].classList.add('hidden');
-                                    }
-
-                                    document.getElementById('show-more-btn').addEventListener('click', function() {
-                                        for (var i = currentIndex; i < currentIndex + itemsToShow; i++) {
-                                            if (tinTucItems[i]) {
-                                                tinTucItems[i].classList.remove('hidden');
-                                            }
-                                        }
-                                        currentIndex += itemsToShow;
-
-                                        if (currentIndex >= tinTucItems.length) {
-                                            this.style.display = 'none';
-                                        }
-                                    });
-                                });
-                            </script>
-                        @else
-                            {{-- còn ko thì thôi, ko có show ra cả --}}
                         @endif
+                        <br>
+                        <style>
+                            .tin-tuc-item.hidden {
+                                display: none;
+                            }
+                        </style>
+                        <script>
+                            // public/js/scripts.js
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var tinTucItems = document.querySelectorAll('.tin-tuc-item');
+                                var itemsToShow = 6;
+                                var currentIndex = itemsToShow;
+
+                                for (var i = itemsToShow; i < tinTucItems.length; i++) {
+                                    tinTucItems[i].classList.add('hidden');
+                                }
+
+                                document.getElementById('show-more-btn').addEventListener('click', function() {
+                                    for (var i = currentIndex; i < currentIndex + itemsToShow; i++) {
+                                        if (tinTucItems[i]) {
+                                            tinTucItems[i].classList.remove('hidden');
+                                        }
+                                    }
+                                    currentIndex += itemsToShow;
+
+                                    if (currentIndex >= tinTucItems.length) {
+                                        this.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
                     @else
                         {{-- Còn ko thì 404 not found --}}
                         <h1 class="d-flex justify-content-center">404 NOT FOUND</h1>

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\khuvucMB;
 use App\Http\Controllers\admin\khuvucMN;
 use App\Http\Controllers\admin\khuvucMT;
 use App\Http\Controllers\admin\khuyenmaiCtrl;
+use App\Http\Controllers\admin\MarqueeCtrl;
 use App\Http\Controllers\admin\serviceSignupCtr;
 use App\Http\Controllers\admin\tinhthanhController;
 use App\Http\Controllers\admin\tinhthanhCtrl;
@@ -119,7 +120,9 @@ Route::middleware('admin')->group(function () {
         Route::post('checkDelete', [khuyenmaiCtrl::class, 'checkDelete'])->name('checkDelete');
         Route::get('xoa-all', [khuyenmaiCtrl::class, 'destroy'])->name('deleteAll');
     });
-
+    Route::get('marquee', [MarqueeCtrl::class, 'index'])->name('marquee.index');
+    Route::get('marquee/{id}', [MarqueeCtrl::class, 'edit'])->name('marquee.edit');
+    Route::post('marquee/{id}', [MarqueeCtrl::class, 'update'])->name('marquee.update');
     Route::get('/chat', function () {
         return view('admin.chat.index'); 
     })->name('chat');

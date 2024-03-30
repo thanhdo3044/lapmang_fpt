@@ -8,6 +8,7 @@ use App\Models\BlogMB;
 use App\Models\blogTT;
 use App\Models\khuvuc;
 use App\Models\khuyenMai;
+use App\Models\Marquee;
 use App\Models\TinTucNew;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -114,26 +115,30 @@ class MenuController extends Controller
     }
     public function tintucnew() {
         $data = TinTucNew::orderBy('id', 'desc')->first();
-        $similar = TinTucNew::orderBy('id', 'desc')->skip(1)->take(9999999999)->get();
+        $similarTT = TinTucNew::orderBy('id', 'desc')->skip(1)->take(9999999999)->get();
         $tinhthanh = khuvuc::with('tinhthanh')->get();
-        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similarTT'));
     }
     public function tintucsimilar($slug)  {
         $data = TinTucNew::where('slug', $slug)->first();
-        $similar = TinTucNew::whereNotIn('slug', [$slug])->orderBy('id', 'desc')->take(9999999999)->get();
+        $similarTT = TinTucNew::whereNotIn('slug', [$slug])->orderBy('id', 'desc')->take(9999999999)->get();
         $tinhthanh = khuvuc::with('tinhthanh')->get();
-        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similarTT'));
     }
     public function khuyenmai() {
         $data = khuyenMai::orderBy('id', 'desc')->first();
-        $similar = khuyenMai::orderBy('id', 'desc')->skip(1)->take(9999999999)->get();
+        $similarKM = khuyenMai::orderBy('id', 'desc')->skip(1)->take(9999999999)->get();
         $tinhthanh = khuvuc::with('tinhthanh')->get();
-        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similarKM'));
     }
     public function khuyenmaisimilar($slug)  {
         $data = khuyenMai::where('slug', $slug)->first();
-        $similar = khuyenMai::whereNotIn('slug', [$slug])->orderBy('id', 'desc')->take(9999999999)->get();
+        $similarKM = khuyenMai::whereNotIn('slug', [$slug])->orderBy('id', 'desc')->take(9999999999)->get();
         $tinhthanh = khuvuc::with('tinhthanh')->get();
-        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similar'));
+        return view('template.nguoi_dung', compact('data', 'tinhthanh', 'similarKM'));
+    }
+    public function marquee() {
+        $marquee = Marquee::all();
+        return view('template.nguoi_dung', ['marquee'=> $marquee]);
     }
 }
