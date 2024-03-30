@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\TinTucNew;
+use App\Models\khuyenMai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class tintucCtrl extends Controller
+class khuyenmaiCtrl extends Controller
 {
     public function index()
     {
-        $title = "Tin tức mới";
-        $data = TinTucNew::paginate(15);
+        $title = "Khuyến mãi";
+        $data = khuyenMai::paginate(15);
 
-        return view('admin.tintuc.index', compact('data', 'title'));
+        return view('admin.khuyenmai.index', compact('data', 'title'));
     }
 
     /**
@@ -22,7 +22,7 @@ class tintucCtrl extends Controller
      */
     public function create()
     {
-        return view('admin.tintuc.add');
+        return view('admin.khuyenmai.add');
     }
     public function upload(Request $request)
     {
@@ -41,7 +41,7 @@ class tintucCtrl extends Controller
     }
     public function store(Request $request)
     {
-        $data = new TinTucNew();
+        $data = new khuyenMai();
 
         // $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -54,7 +54,7 @@ class tintucCtrl extends Controller
         
         
         $data->save();
-        return redirect()->route('tintuc.index')->with('success', 'Thêm bài viết thành công');
+        return redirect()->route('sale.index')->with('success', 'Thêm bài viết thành công');
     }
 
     /**
@@ -62,10 +62,10 @@ class tintucCtrl extends Controller
      */
     public function show(string $id)
     {
-        $data = TinTucNew::find($id);
+        $data = khuyenMai::find($id);
         // $tinhthanh = tinhthanh::all();
 
-        return view('admin.tintuc.edit', compact('data'));
+        return view('admin.khuyenmai.edit', compact('data'));
     }
 
     /**
@@ -73,7 +73,7 @@ class tintucCtrl extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = TinTucNew::find($id);
+        $data = khuyenMai::find($id);
 
         // $data->id_dia_chi = $request->id_dia_chi;
         $data->title = $request->title;
@@ -84,19 +84,19 @@ class tintucCtrl extends Controller
         $data->meta_title = $request->meta_title;
 
         $data->update();
-        return redirect()->route('tintuc.index')->with('success', 'Sửa bài viết thành công');
+        return redirect()->route('sale.index')->with('success', 'Sửa bài viết thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function checkDeleteNews(Request $request){
+    public function checkDelete(Request $request){
         $ids = $request->ids;
-        // dd($ids);
+        dd($ids);
         if(isset($ids)){
-            $check = TinTucNew::whereIn('id', $ids)->forceDelete();
+            $check = khuyenMai::whereIn('id', $ids)->forceDelete();
             if($check){
-                return redirect()->route('tintuc.index')->with('success', 'Xoá bài viết thành công');
+                return redirect()->route('sale.index')->with('success', 'Xoá bài viết thành công');
             }
         }else{
             toastr()->error('Xóa thất bại, chọn các mục cần xóa');
@@ -105,10 +105,9 @@ class tintucCtrl extends Controller
         
         
     }
-    
     public function destroy()
     {
-        TinTucNew::truncate();
-        return redirect()->route('tintuc.index')->with('success', 'Xoá bài viết thành công');
+        khuyenMai::truncate();
+        return redirect()->route('sale.index')->with('success', 'Xoá bài viết thành công');
     }
 }

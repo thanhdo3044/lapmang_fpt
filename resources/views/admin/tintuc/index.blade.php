@@ -13,40 +13,46 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Tiêu Đề</th>
-                            <th>Thông tin</th>
-                            <th>Nội Dung</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $index = 1; ?>
-                        @foreach ($data as $item)
+                <a href="{{ route('deleteAllNews') }}" class="btn btn-primary" style="position: relative;" onclick="">Xóa tất cả</a>
+                <form action="{{ route('checkDeleteNews') }}" method="post">
+                    @csrf
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>{{ $index++ }}</td>
-                                <td>{{ $item->title }}</td>
-                                <td>Ngày viết: <b>{{ $item->created_at }}</b> <br>
-                                    Ngày Sửa: <b>{{ $item->updated_at }}</b>
-                                </td>
-                                <td class="d-inline-block text-truncate" style="max-width: 700px; max-height: 90px">
-                                    {!! $item->description !!}</td>
-
-                                <td>
-                                    <a href="{{ route('tintuc.edit', ['id' => $item->id]) }}"
-                                        class="d-flex justify-content-center"><i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
-
+                                <th><button type="submit" class="btn btn-primary" onclick="return confirm('Bạn có chắc chắn xóa?')">Xoá đã chọn</button>  </th>
+                                <th>STT</th>
+                                <th>Tiêu Đề</th>
+                                {{-- <th>Thông tin</th> --}}
+                                <th>Nội Dung</th>
+                                <th>Action</th>
                             </tr>
-                        @endforeach
-
-
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php $index = 1; ?>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td><input type="checkbox" name="ids[{{$item->id}}]" value="{{$item->id}}"></td>
+                                    <td>{{ $index++ }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    {{-- <td>Ngày viết: <b>{{ $item->created_at }}</b> <br>
+                                        Ngày Sửa: <b>{{ $item->updated_at }}</b>
+                                    </td> --}}
+                                    <td class="d-inline-block text-truncate" style="max-width: 700px; max-height: 90px">
+                                        {!! $item->description !!}</td>
+    
+                                    <td>
+                                        <a href="{{ route('tintuc.edit', ['id' => $item->id]) }}"
+                                            class="d-flex justify-content-center"><i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+    
+                                </tr>
+                            @endforeach
+    
+    
+                        </tbody>
+                    </table>
+                </form>
                 {{ $data->links() }}
             </div>
         </div>

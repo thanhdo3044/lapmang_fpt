@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -101,7 +102,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('tintuc.index') }}">Tin Tức</a>
-                        <a class="collapse-item" href="register.html">Khuyến Mãi</a>
+                        <a class="collapse-item" href="{{route('sale.index')}}">Khuyến Mãi</a>
+                        <a class="collapse-item" href="{{route('marquee.index')}}">Marquee</a>
                     </div>
                 </div> 
             </li>

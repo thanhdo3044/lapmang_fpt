@@ -17,9 +17,44 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('nguoi_dung/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TW0VR0ZM64');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5TD683QX');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TD683QX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="container container-main">
 
         <div class="row title">
@@ -78,22 +113,24 @@
                 </button>
                 <div class="title-mobi1">
                     <div class=" d-flex justify-content-center align-items-center">
-                        <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile"
-                            width="146" height="48" />
+                        <img class=" img-fluid" src="{{ asset('nguoi_dung/img/logofptmobile.png') }}"
+                            alt="logofptmobile" width="146" height="48" />
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="menu_name navbar-nav me-auto  col-12 d-flex justify-content-center align-items-center ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ route('menu.trangchu') }}" <i
-                                class="fas fa-home"></i>Trang Chủ</a>
+                                class="fas fa-home"></i> Trang Chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('menu.internet') }}"><i
-                                    class="fas fa-globe-europe"></i>Internet FPT</a>
+                                    class="fas fa-globe-europe"></i>
+                                Internet FPT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>Camera
+                            <a class="nav-link" href="{{ route('menu.camera') }}"><i class="fas fa-video"></i>
+                                Camera
                                 FPT</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -110,57 +147,78 @@
                                         Kênh</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('menu.playbox') }}"><i class="fas fa-gamepad"></i>FPT
                                 Play Box</a>
-                        </li>
+                        </li> --}}
 
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>
+                                Tin
+                                Tức Mới</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('sale.new') }}"><i class="bi bi-fire"></i>
+                                Khuyến mãi</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="true">
                                 <i class="fas fa-book"></i> Hỗ Trợ FPT
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}">Hỗi Trợ Kỹ
+                                <li><a class="dropdown-item" href="{{ route('menu.spkithuat') }}"> Hỗi Trợ Kỹ
                                         Thuật</a></li>
-                                <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}">Thủ Tục Và Chính
+                                <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}"> Thủ Tục Và Chính
                                         Sách</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>Tin
-                                Tức Mới</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-
         <marquee behavior="scroll" scrollamount="8" height="30" direction="left">
-            <h5 style="color: red">
-                <i class="fab fa-salesforce"></i>KM áp dụng khu vực Hà Nội : COMBO cả Internet wifi và Truyền hình<i
-                    class="fab fa-salesforce">
-            </h5>
+            <strong>
+                <h5 style="color: red">
+                    @if (isset($marquee))
+                        @foreach ($marquee as $item)
+                            <img src="https://lapmangfpt.vn/files/assets/hn.gif" alt="" width="39"
+                                height="23">
+                            {{ $item->noidung }} <img src="https://lapmangfpt.vn/files/assets/hn.gif" alt=""
+                                width="39" height="23">
+                        @endforeach
+
+                    @endif
+                </h5>
+            </strong>
         </marquee>
+        <table></table>
         <div class="container-fluid blog">
             <div class="row">
-                <div class="col-9 col-s-12 image-container">
+                <div class="col-9 col-s-12 image-container table-responsive">
 
                     @if ($data)
                         {{-- Kiểm tra nếu tồn tại $data thì show ra --}}
                         {!! isset($data->description)
-                            ? str_replace('<img', '<img class="custom-image img-fluid"', $data->description)
-                            : '' !!} <hr>
-                        @if (isset($similar))
+                            ? str_replace(
+                                ['<table', '<img'],
+                                ['<table class="table table-striped"', '<img class="custom-image img-fluid"'],
+                                $data->description,
+                            )
+                            : '' !!}
+                        <hr>
+                        @if (isset($similarTT))
                             {{-- Kiểm tra nếu tồn tại $similar (Bài viết tương tụ) thì show ra --}}
                             <h2>Bài viết tương tự</h2> <br>
                             <div class="container-fluid">
                                 <div class="row tin-tuc-container">
-                                    @foreach ($similar as $value)
+                                    @foreach ($similarTT as $value)
                                         <div class="col-6 col-sm-12">
                                             <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
-                                                <a href="{{route('tintuc.similar', ['slug'=>$value->slug])}}">{{ $value->title }}</a>
+                                                <a
+                                                    href="{{ route('tintuc.similar', ['slug' => $value->slug]) }}">{{ $value->title }}</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -168,45 +226,67 @@
 
                                 </div>
                                 <div class="row d-flex justify-content-center">
-                                    <div class="col-2"><button type="submit" id="show-more-btn" class="btn btn-primary ">Xem
+                                    <div class="col-2"><button type="submit" id="show-more-btn"
+                                            class="btn btn-primary ">Xem
                                             thêm</button></div>
 
                                 </div>
                             </div>
-                            <br>
-                            <style>
-                                .tin-tuc-item.hidden {
-                                    display: none;
-                                }
-                            </style>
-                            <script>
-                                // public/js/scripts.js
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    var tinTucItems = document.querySelectorAll('.tin-tuc-item');
-                                    var itemsToShow = 6;
-                                    var currentIndex = itemsToShow;
-
-                                    for (var i = itemsToShow; i < tinTucItems.length; i++) {
-                                        tinTucItems[i].classList.add('hidden');
-                                    }
-
-                                    document.getElementById('show-more-btn').addEventListener('click', function() {
-                                        for (var i = currentIndex; i < currentIndex + itemsToShow; i++) {
-                                            if (tinTucItems[i]) {
-                                                tinTucItems[i].classList.remove('hidden');
-                                            }
-                                        }
-                                        currentIndex += itemsToShow;
-
-                                        if (currentIndex >= tinTucItems.length) {
-                                            this.style.display = 'none';
-                                        }
-                                    });
-                                });
-                            </script>
-                        @else
+                        @elseif(isset($similarKM))
                             {{-- còn ko thì thôi, ko có show ra cả --}}
+                            <h2>Bài viết tương tự</h2> <br>
+                            <div class="container-fluid">
+                                <div class="row tin-tuc-container">
+                                    @foreach ($similarKM as $value)
+                                        <div class="col-6 col-sm-12">
+                                            <div class="shadow-lg p-3 mb-5 bg-body rounded text-ellipsis tin-tuc-item">
+                                                <a
+                                                    href="{{ route('sale.similar', ['slug' => $value->slug]) }}">{{ $value->title }}</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2"><button type="submit" id="show-more-btn"
+                                            class="btn btn-primary ">Xem
+                                            thêm</button></div>
+
+                                </div>
+                            </div>
                         @endif
+                        <br>
+                        <style>
+                            .tin-tuc-item.hidden {
+                                display: none;
+                            }
+                        </style>
+                        <script>
+                            // public/js/scripts.js
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var tinTucItems = document.querySelectorAll('.tin-tuc-item');
+                                var itemsToShow = 6;
+                                var currentIndex = itemsToShow;
+
+                                for (var i = itemsToShow; i < tinTucItems.length; i++) {
+                                    tinTucItems[i].classList.add('hidden');
+                                }
+
+                                document.getElementById('show-more-btn').addEventListener('click', function() {
+                                    for (var i = currentIndex; i < currentIndex + itemsToShow; i++) {
+                                        if (tinTucItems[i]) {
+                                            tinTucItems[i].classList.remove('hidden');
+                                        }
+                                    }
+                                    currentIndex += itemsToShow;
+
+                                    if (currentIndex >= tinTucItems.length) {
+                                        this.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
                     @else
                         {{-- Còn ko thì 404 not found --}}
                         <h1 class="d-flex justify-content-center">404 NOT FOUND</h1>
@@ -415,46 +495,51 @@
 
 
     </div>
+    <footer>
 
-    <div class="footer">
-        <div class="row">
-            <div class="  col-6 d-flex justify-content-center align-items-center image-container">
-                <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="250"
-                    class="img-footer-start" />
-            </div>
-            <div class="col-6 row footer-center">
-                <div class="col-12">
-                    <h3>Trụ sở :</h3>
+        <div class="footer">
+
+            <div class="row">
+                <div class="  col-6 d-flex justify-content-center align-items-center image-container">
+                    <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="250"
+                        class="img-footer-start" />
                 </div>
-                <a href="https://maps.app.goo.gl/EgFGRCeTu23eCLSAA" class="col-12"> <i
-                        class="fas fa-location-arrow"></i> Hà Nội: Đội 7-khu 3-thôn Văn Lôi - xã Tam Đồng - huyện Mê
-                    Linh - Hà Nội</a>
-                <a href="https://maps.app.goo.gl/tvYVxTEtfnjzoMDSA" class="col-12"> <i
-                        class="fas fa-location-arrow"></i> Hà Nội: Tòa nhà PVI, số 1 Phạm Văn Bạch, Cầu Giấy</a>
-                <a href="https://maps.app.goo.gl/AY1tEdSsNfUKeDmp7" class="col-12"><i
-                        class="fas fa-location-arrow"></i> Đà Nẵng: 182 - 184 Đường 2 tháng 9, Hải Châu</a>
-                <a href="https://maps.app.goo.gl/bgRS84D1KK9T4HZ26" class="col-12"><i
-                        class="fas fa-location-arrow"></i> TP. HCM: Lô 37-39A, đường 19, KCX Tân Thuận, Phường Tân
-                    Thuận Đông, Quận 7</a>
+                <div class="col-6 row footer-center">
+                    <div class="col-12">
+                        <h3>Trụ sở :</h3>
+                    </div>
+                    <a href="https://maps.app.goo.gl/EgFGRCeTu23eCLSAA" class="col-12"> <i
+                            class="fas fa-location-arrow"></i> Hà Nội: Đội 7-khu 3-thôn Văn Lôi - xã Tam Đồng - huyện
+                        Mê
+                        Linh - Hà Nội</a>
+                    <a href="https://maps.app.goo.gl/tvYVxTEtfnjzoMDSA" class="col-12"> <i
+                            class="fas fa-location-arrow"></i> Hà Nội: Tòa nhà PVI, số 1 Phạm Văn Bạch, Cầu Giấy</a>
+                    <a href="https://maps.app.goo.gl/AY1tEdSsNfUKeDmp7" class="col-12"><i
+                            class="fas fa-location-arrow"></i> Đà Nẵng: 182 - 184 Đường 2 tháng 9, Hải Châu</a>
+                    <a href="https://maps.app.goo.gl/bgRS84D1KK9T4HZ26" class="col-12"><i
+                            class="fas fa-location-arrow"></i> TP. HCM: Lô 37-39A, đường 19, KCX Tân Thuận, Phường Tân
+                        Thuận Đông, Quận 7</a>
 
-            </div>
-            <div class="col-12 d-flex justify-content-center align-items-center image-container">
-                {{-- <iframe class="footer-end"
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center image-container">
+                    {{-- <iframe class="footer-end"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.74291387615!2d105.68703787477385!3d21.20236938179401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134feaca1c9a91f%3A0x49da2c9ab147bd4a!2zU8OibiBW4bqtbiDEkOG7mW5nIFRow7RuIFbEg24gTMO0aQ!5e0!3m2!1svi!2s!4v1710515367206!5m2!1svi!2s"
                     width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
 
-                <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center ">
-                    Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300 2222 -
-                    ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy phép
-                    số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                    <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center ">
+                        Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300
+                        2222 -
+                        ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy
+                        phép
+                        số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
 
-    <div class="fixed-menu">
+        {{-- <div class="fixed-menu">
 
         <div style="color: #000080;" id="DienThoai1">
             <div class="icon_lienhe" id="id_chat_lieuhe">
@@ -563,26 +648,46 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('nguoi_dung/js/index.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('nguoi_dung/js/index.js') }}"></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-        gtag('config', 'G-TW0VR0ZM64');
-    </script>
+            gtag('config', 'G-TW0VR0ZM64');
+        </script>
+        <script>
+            !(function() {
+                const livechatUrl = 'https://portal-sop.fpt.vn/livechat-service/widget.css';
+                document
+                    .getElementsByTagName("head")[0]
+                    .insertAdjacentHTML(
+                        "beforeend",
+                        `<link rel='stylesheet' href=${livechatUrl} />`
+                    );
+                const e = document.createElement("div");
+                e.setAttribute("id", "livechat-sop"), document.body.appendChild(e);
+                localStorage.setItem('sop_id', '408');
+                const t = document.createElement("script");
+                t.setAttribute("type", "module"),
+                    t.setAttribute("crossorigin", ""),
+                    (t.src = "https://portal-sop.fpt.vn/livechat-service/Widget.js"),
+                    document.body.appendChild(t);
+            })();
+        </script>
+    </footer>
 </body>
 
 </html>
