@@ -30,9 +30,31 @@
 
         gtag('config', 'G-TW0VR0ZM64');
     </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5TD683QX');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TD683QX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="container container-main">
 
         <div class="row title">
@@ -102,7 +124,8 @@
                                 class="fas fa-home"></i> Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('menu.internet') }}"><i class="fas fa-globe-europe"></i>
+                            <a class="nav-link" href="{{ route('menu.internet') }}"><i
+                                    class="fas fa-globe-europe"></i>
                                 Internet FPT</a>
                         </li>
                         <li class="nav-item">
@@ -129,6 +152,16 @@
                                 Play Box</a>
                         </li> --}}
 
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>
+                                Tin
+                                Tức Mới</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('sale.new') }}"><i class="bi bi-fire"></i>
+                                Khuyến mãi</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="true">
@@ -140,15 +173,6 @@
                                 <li><a class="dropdown-item" href="{{ route('menu.ttvacs') }}"> Thủ Tục Và Chính
                                         Sách</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tintuc.new') }}"><i class="fas fa-newspaper"></i>
-                                Tin
-                                Tức Mới</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('sale.new') }}"><i class="bi bi-fire"></i> Tin
-                                Khuyến mãi</a>
                         </li>
                     </ul>
                 </div>
@@ -471,46 +495,51 @@
 
 
     </div>
+    <footer>
 
-    <div class="footer">
-        <div class="row">
-            <div class="  col-6 d-flex justify-content-center align-items-center image-container">
-                <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="250"
-                    class="img-footer-start" />
-            </div>
-            <div class="col-6 row footer-center">
-                <div class="col-12">
-                    <h3>Trụ sở :</h3>
+        <div class="footer">
+
+            <div class="row">
+                <div class="  col-6 d-flex justify-content-center align-items-center image-container">
+                    <img src="{{ asset('nguoi_dung/img/logofptmobile.png') }}" alt="logofptmobile" width="250"
+                        class="img-footer-start" />
                 </div>
-                <a href="https://maps.app.goo.gl/EgFGRCeTu23eCLSAA" class="col-12"> <i
-                        class="fas fa-location-arrow"></i> Hà Nội: Đội 7-khu 3-thôn Văn Lôi - xã Tam Đồng - huyện Mê
-                    Linh - Hà Nội</a>
-                <a href="https://maps.app.goo.gl/tvYVxTEtfnjzoMDSA" class="col-12"> <i
-                        class="fas fa-location-arrow"></i> Hà Nội: Tòa nhà PVI, số 1 Phạm Văn Bạch, Cầu Giấy</a>
-                <a href="https://maps.app.goo.gl/AY1tEdSsNfUKeDmp7" class="col-12"><i
-                        class="fas fa-location-arrow"></i> Đà Nẵng: 182 - 184 Đường 2 tháng 9, Hải Châu</a>
-                <a href="https://maps.app.goo.gl/bgRS84D1KK9T4HZ26" class="col-12"><i
-                        class="fas fa-location-arrow"></i> TP. HCM: Lô 37-39A, đường 19, KCX Tân Thuận, Phường Tân
-                    Thuận Đông, Quận 7</a>
+                <div class="col-6 row footer-center">
+                    <div class="col-12">
+                        <h3>Trụ sở :</h3>
+                    </div>
+                    <a href="https://maps.app.goo.gl/EgFGRCeTu23eCLSAA" class="col-12"> <i
+                            class="fas fa-location-arrow"></i> Hà Nội: Đội 7-khu 3-thôn Văn Lôi - xã Tam Đồng - huyện
+                        Mê
+                        Linh - Hà Nội</a>
+                    <a href="https://maps.app.goo.gl/tvYVxTEtfnjzoMDSA" class="col-12"> <i
+                            class="fas fa-location-arrow"></i> Hà Nội: Tòa nhà PVI, số 1 Phạm Văn Bạch, Cầu Giấy</a>
+                    <a href="https://maps.app.goo.gl/AY1tEdSsNfUKeDmp7" class="col-12"><i
+                            class="fas fa-location-arrow"></i> Đà Nẵng: 182 - 184 Đường 2 tháng 9, Hải Châu</a>
+                    <a href="https://maps.app.goo.gl/bgRS84D1KK9T4HZ26" class="col-12"><i
+                            class="fas fa-location-arrow"></i> TP. HCM: Lô 37-39A, đường 19, KCX Tân Thuận, Phường Tân
+                        Thuận Đông, Quận 7</a>
 
-            </div>
-            <div class="col-12 d-flex justify-content-center align-items-center image-container">
-                {{-- <iframe class="footer-end"
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center image-container">
+                    {{-- <iframe class="footer-end"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.74291387615!2d105.68703787477385!3d21.20236938179401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134feaca1c9a91f%3A0x49da2c9ab147bd4a!2zU8OibiBW4bqtbiDEkOG7mW5nIFRow7RuIFbEg24gTMO0aQ!5e0!3m2!1svi!2s!4v1710515367206!5m2!1svi!2s"
                     width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
 
-                <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center ">
-                    Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300 2222 -
-                    ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy phép
-                    số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                    <div style="border-top:1px solid #fff; margin: 5px;padding: 5px;text-align: center ">
+                        Trụ sở : Hà Nội: Tòa Nhà PVI, Số 1 Phạm Văn Bạch, Cầu Giấy | Phòng kinh doanh Tel: +84 247300
+                        2222 -
+                        ext 4631 | Mobile : 094 77 95 777 Email: HaiPM2@fpt.com.vnCông Ty Cổ Phần Viễn Thông FPT | Giấy
+                        phép
+                        số: 0101778163 do sở kế hoạch đầu tư thành phố Hà Nội cấp ngày 28/07/2005
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
 
-    <div class="fixed-menu">
+        {{-- <div class="fixed-menu">
 
         <div style="color: #000080;" id="DienThoai1">
             <div class="icon_lienhe" id="id_chat_lieuhe">
@@ -619,26 +648,46 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('nguoi_dung/js/index.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('nguoi_dung/js/index.js') }}"></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW0VR0ZM64"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-        gtag('config', 'G-TW0VR0ZM64');
-    </script>
+            gtag('config', 'G-TW0VR0ZM64');
+        </script>
+        <script>
+            !(function() {
+                const livechatUrl = 'https://portal-sop.fpt.vn/livechat-service/widget.css';
+                document
+                    .getElementsByTagName("head")[0]
+                    .insertAdjacentHTML(
+                        "beforeend",
+                        `<link rel='stylesheet' href=${livechatUrl} />`
+                    );
+                const e = document.createElement("div");
+                e.setAttribute("id", "livechat-sop"), document.body.appendChild(e);
+                localStorage.setItem('sop_id', '408');
+                const t = document.createElement("script");
+                t.setAttribute("type", "module"),
+                    t.setAttribute("crossorigin", ""),
+                    (t.src = "https://portal-sop.fpt.vn/livechat-service/Widget.js"),
+                    document.body.appendChild(t);
+            })();
+        </script>
+    </footer>
 </body>
 
 </html>
