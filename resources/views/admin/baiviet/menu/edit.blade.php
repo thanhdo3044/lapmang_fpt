@@ -23,7 +23,7 @@
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Tên Menu</label>
-            <input type="text" class="form-control" name="id_dia_chi" value="{{$data->id_dia_chi}}"/>
+            <input type="text" class="form-control" name="id_dia_chi" value="{{$data->id_dia_chi}}" disabled/>
 
             <div class="mb-3">
                 <label for="" class="form-label">Key word</label>

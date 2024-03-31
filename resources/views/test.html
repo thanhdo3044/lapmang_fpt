@@ -10,34 +10,83 @@
 </head>
 
 <body>
-    <div
-        class="table-responsive-sm"
-    >
-        <table
-            class="table table-primary"
-        >
-            <thead>
-                <tr>
-                    <th scope="col">Column 1</th>
-                    <th scope="col">Column 2</th>
-                    <th scope="col">Column 3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <td scope="row"><img src="https://lapmangfpt.vn/files/assets/camera-fpt-out-iq2.jpg" alt=""></td>
-                    <td>R1C2</td>
-                    <td>R1C3</td>
-                </tr>
-                <tr class="">
-                    <td scope="row">Item</td>
-                    <td>Item</td>
-                    <td>Item</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
+    <script>
+        var routeUrl = "{{ route('dangkidv') }}";
+    </script>
+
+    <!-- Form with action set to route URL -->
+    <form action="javascript:void(0);" onsubmit="submitForm()" method="post">
+        <input type="hidden" name="_token" value="B88Nck9YfQ3kbBk2ji4G0WSCLQAQMwSZPh2S7QYd">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="ten" id="name" aria-describedby="helpId" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <input type="text" class="form-control" name="diachi" id="address" aria-describedby="helpId">
+        </div>
+        <div class="mb-3">
+            <label for="service" class="form-label">Dịch vụ</label>
+            <select class="form-select form-select-lg" name="dichvu" id="service" required>
+                <option value="Đăng kí internet" selected>Đăng kí internet fpt</option>
+                <option value="Combo internet và truyền hình fpt">Combo internet và truyền hình fpt</option>
+                <option value="FPT PlayBox">FPT play box</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng kí</button>
+    </form>
+</div>
+
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#content'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+    // Function to submit form
+    function submitForm() {
+        var form = document.querySelector('form');
+        form.action = routeUrl; // Set form action to route URL
+        form.submit(); // Submit the form
+    }
+</script>
+    <!-- <form action="{{route('dangkidv')}}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="mb-3">
+            <label for="" class="form-label">Name</label>
+            <input type="text" class="form-control" name="ten" id="" aria-describedby="helpId" placeholder="" required/>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Số điện thoại</label>
+            <input type="number" class="form-control" name="phone" id="" aria-describedby="helpId" placeholder=""  required/>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Địa chỉ</label>
+            <input type="text" class="form-control" name="diachi" id="" aria-describedby="helpId" placeholder="" />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Dịch vụ</label>
+            <select class="form-select form-select-lg" name="dichvu" id="" required>
+                <option value="Đăng kí internet" selected>Đăng kí internet fpt</option>
+                <option value="Combo internet và truyền hình fpt">Combo internet và truyền
+                    hình fpt</option>
+                <option value="FPT PlayBox">FPT play box</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Đăng kí</button>
+    </form> -->
+
 </body>
 
 </html>

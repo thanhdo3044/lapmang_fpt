@@ -58,5 +58,16 @@ class loginController extends Controller
             Auth::login($data);
         return redirect()->route('auth.login')->with('success', 'Đăng kí thành công, mời bạn đăng nhập.');
     }
+    public function doimk(){
+        return view('admin.doimk');
+    }
+    public function doimatkhau(Request $request) {
+        $data = User::find(1);
+        dd(Hash::check($data->password));
+        $data->update([
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->intended('/dashboard')->with('success', 'Đổi mật khẩu thành công.');
+    }
 
 }
