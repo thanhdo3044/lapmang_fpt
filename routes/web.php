@@ -126,6 +126,10 @@ Route::middleware('admin')->group(function () {
     Route::get('/chat', function () {
         return view('admin.chat.index'); 
     })->name('chat');
+
+
+    Route::get('/doi-mat-khau',[loginController::class, 'doimk'])->name('doimk');
+    Route::post('/doi-pass',[loginController::class, 'doimatkhau'])->name('doimatkhau');
 });
 
 
@@ -152,6 +156,7 @@ Route::get('/fpt-play-box-tv-box-giai-tri-hang-dau-viet-nam-bien-tivi-thuong-tha
 Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'hotro'])->name('menu.hotro');
 Route::get('/tong-dai-ho-tro-ky-thuat-mang-fpt-telecom', [MenuController::class, 'spkithuat'])->name('menu.spkithuat');
 Route::get('/huong-dan-cac-thu-tuc-va-chinh-sach-cho-khach-hang-su-dung-dich-vu-cua-fpt-telecom', [MenuController::class, 'ttvscs'])->name('menu.ttvacs');
+Route::get('/form-dang-ki-dich-vu', [MenuController::class, 'formdkdv'])->name('menu.formdkdv');
 Route::get('/tin-tuc-moi-cap-nhat-moi-nhat', [MenuController::class, 'tintucnew'])->name('tintuc.new');
 Route::get('/tin-tuc/{slug}', [MenuController::class, 'tintucsimilar'])->name('tintuc.similar');
 Route::get('/khuyen-mai-moi-cap-nhat', [MenuController::class, 'khuyenmai'])->name('sale.new');

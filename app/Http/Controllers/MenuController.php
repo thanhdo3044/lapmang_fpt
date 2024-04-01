@@ -96,6 +96,12 @@ class MenuController extends Controller
         $tinhthanh = khuvuc::with('tinhthanh')->get();
         return view('template.nguoi_dung', compact('data', 'tinhthanh'));
     }
+    public function formdkdv()
+    {
+        $data = baiviet::where('id', 15)->first();
+        $tinhthanh = khuvuc::with('tinhthanh')->get();
+        return view('template.nguoi_dung', compact('data', 'tinhthanh'));
+    }
 
     //show cac bai viet tinh thanh
 

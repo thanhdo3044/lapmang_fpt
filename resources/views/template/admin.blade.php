@@ -153,7 +153,11 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('doimk') }}">
+                    <i class="fas fa-lock"></i>
+                    <span>Đổi mật khẩu</span></a>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
