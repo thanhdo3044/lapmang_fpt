@@ -63,7 +63,7 @@ max-width: 95%;
 .fixed-menu {
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   background-color: transparent;
   padding: 10px 0;
 }
@@ -77,11 +77,10 @@ max-width: 95%;
 
 .fixe_menu_mobi{
   position: fixed;
-  border: 0;
+  bottom: 0;
   left: 0;
   background: transparent;
-  padding: 0;
-  margin: 0 0 -40px 3px;
+  padding: 10px 0;
 }
 .icon_lienhe{
     border: 5px solid #008749;
