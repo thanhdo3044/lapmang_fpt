@@ -66,6 +66,7 @@ max-width: 95%;
   left: 0;
   background-color: transparent;
   padding: 10px 0;
+  display: flex;
 }
 
 .fixed-menu ul {
@@ -83,13 +84,15 @@ max-width: 95%;
   padding: 10px 0;
 }
 .icon_lienhe{
-    border: 5px solid #008749;
-    border-radius:15px; 
-    padding: 12px;
-    width: 70px;
-    background-color: #FFFFFF;
-    margin: 5px;
+  background-color: transparent;
+  margin: 5px;
+  background-color: #fff;
+  animation: bounce 1s infinite alternate;
+  width: 50px;
+  border-radius:10px ;
+  
 }
+
 .icon_lieuhemobi{
   width: 120px;
   height: 40px;
@@ -103,15 +106,30 @@ max-width: 95%;
   text-decoration: none;
   color: #fff;
 }
-.icon_lienhe:hover{
-  border: 5px solid #FFFFFF;
-}
+
 .card-left-context{
   border: 1px solid #000;
   text-align: center;
   font-weight: bold;
   padding: 0;
   border-bottom-color: transparent;
+}
+#id_chat_lieuhe{
+  margin-left: 40px;
+}
+.icon_lienhe_sdt{
+  border-radius: 12px;
+  animation: bounce 1s infinite alternate;
+  margin-top: 15px;
+  padding-left: 15px;
+
+}
+.icon_lienhe_sdt a{
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 900;
+  /* padding: 0 10px; */
+  color: #ff6600;
 }
 .card-left-context-header{
   background-color: #3A71BC;
@@ -228,14 +246,12 @@ max-width: 95%;
   .fixe_menu_mobi{display: none;}
 
 }
-@keyframes blink {
-  0% {
-    opacity: 1;
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
   }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
+  to {
+    transform: translateY(-20px); /* Di chuyển lên trên 20px */
   }
 }
